@@ -15,6 +15,9 @@ import (
 // unlocksCookieName is the cookie written by the Update button in app.js.
 const unlocksCookieName = "fhUnlocks"
 
+// shareParamName is the query parameter carrying a compact shared unlocks value.
+const shareParamName = "share"
+
 type buildingLevels struct {
 	Craftsman   int `json:"craftsman"`
 	Jeweler     int `json:"jeweler"`
@@ -42,17 +45,21 @@ type unlocks struct {
 }
 
 // unlocksFromRequest reads the fhUnlocks cookie; a missing or malformed
-// cookie means a fresh campaign (no buildings, nothing discovered).
+// cookie means a fresh campaign.
 func unlocksFromRequest(r *http.Request) unlocks {
-	var u unlocks
 	cookie, err := r.Cookie(unlocksCookieName)
 	if err != nil {
-		return u
+		return unlocks{}
 	}
 	value, err := url.PathUnescape(cookie.Value)
 	if err != nil {
-		return u
+		return unlocks{}
 	}
+	return parseUnlocks(value)
+}
+
+func parseUnlocks(value string) unlocks {
+	var u unlocks
 	if err := json.Unmarshal([]byte(value), &u); err != nil {
 		return unlocks{}
 	}

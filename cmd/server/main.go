@@ -38,6 +38,10 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
+		if storeShareInCookie(w, r) {
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
 		data := buildPageData(cat, ghItems, unlocksFromRequest(r))
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := indexTmpl.Execute(w, data); err != nil {

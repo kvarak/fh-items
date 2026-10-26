@@ -129,15 +129,52 @@ document.querySelectorAll("#slot-filter-pills .pill").forEach((button) => {
   });
 });
 
-// Update saves building levels and discovered items, then reloads so the
-// server re-renders which items are unlocked.
-document.getElementById("unlocks-update-button").addEventListener("click", () => {
-  writeCookie(UNLOCKS_COOKIE, {
+function currentUnlocks() {
+  return {
     buildings: readBuildingLevels(),
     unlockedItemIds: readCheckedIDs(".unlockable-checkbox"),
     ghItemIds: readCheckedIDs(".gloomhaven-checkbox"),
-  });
-  window.location.reload();
+  };
+}
+
+// Update saves building levels and discovered items, then loads the bare page so
+// the server re-renders from the saved cookie (a share link would override it).
+document.getElementById("unlocks-update-button").addEventListener("click", () => {
+  writeCookie(UNLOCKS_COOKIE, currentUnlocks());
+  window.location.href = "/";
+});
+
+// Encodes unlocks as base64url: 3 level bytes, then discovered and Gloomhaven ID bitsets (see cmd/server/share.go).
+function pushUvarint(out, n) {
+  while (n >= 128) {
+    out.push((n & 127) | 128);
+    n >>>= 7;
+  }
+  out.push(n);
+}
+
+function encodeShare({ buildings, unlockedItemIds, ghItemIds }) {
+  const bytes = [buildings.craftsman, buildings.tradingPost, buildings.jeweler].map((v) => v & 255);
+  for (const ids of [unlockedItemIds, ghItemIds]) {
+    const length = ids.length ? Math.floor(Math.max(...ids) / 8) + 1 : 0;
+    const bits = new Uint8Array(length);
+    for (const id of ids) bits[id >> 3] |= 1 << (id & 7);
+    pushUvarint(bytes, length);
+    bytes.push(...bits);
+  }
+  return btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+// The share link carries the unlocks as a query parameter; it is not saved until the recipient clicks Update.
+document.getElementById("unlocks-share-button").addEventListener("click", async () => {
+  const link = `${window.location.origin}/?share=${encodeShare(currentUnlocks())}`;
+  const status = document.getElementById("share-status");
+  try {
+    await navigator.clipboard.writeText(link);
+    status.textContent = "Link copied.";
+  } catch {
+    status.textContent = link;
+  }
 });
 
 // Restores the saved basket. Items that are gone or no longer selectable are dropped.
