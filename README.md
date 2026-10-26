@@ -63,3 +63,16 @@ go test ./...   # without Docker
 CI runs `make check` on every push and pull request, and publishes the
 Docker image to `ghcr.io` on pushes to `main` for `linux/amd64`,
 `linux/arm64`, and `linux/arm/v7` (Raspberry Pi 4 on 64- or 32-bit OS).
+
+## License
+
+The source code in this repository is licensed under the [MIT License](LICENSE).
+
+This is an unofficial fan-made companion tool. It is not affiliated with,
+endorsed by, or sponsored by Cephalofair Games.
+
+Frosthaven and Gloomhaven card images, artwork, rulebook text, trademarks, and
+other official game assets remain the property of Cephalofair Games. They are
+included for non-commercial reference/interoperability with legally obtained
+copies of the games and are **not** licensed under this repository’s MIT
+license.
