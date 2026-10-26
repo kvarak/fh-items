@@ -1,7 +1,4 @@
-# Build context is fh-items/ itself - this image only ever sees the
-# webapp, never the rest of the workspace. The immutable source data at
-# ../.github/docs/items.json is only needed by `make gendata`, which bind
-# mounts it in at run time instead (see fh-items/Makefile).
+# Build context is fh-items/ itself; the image only sees the webapp.
 FROM golang:1.23-alpine
 
 WORKDIR /src

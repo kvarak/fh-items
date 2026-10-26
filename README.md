@@ -2,7 +2,8 @@
 
 A Frosthaven crafting planner. Set your building levels and discovered
 items, then pick items into a shopping basket to see the total cost.
-Prerequisite items are added to the basket automatically.
+Prerequisite items are added to the basket automatically. Gloomhaven items
+imported through the Building 37 can be added too.
 
 ## Running it
 
@@ -16,27 +17,23 @@ go run ./cmd/server -addr :9000
 
 Nothing is stored server-side. Everything lives in browser cookies:
 
-- `fhUnlocks`: building levels and discovered item IDs, saved when you
-  click Update.
-- `fhBasket`: the item IDs in the shopping basket.
+- `fhUnlocks`: building levels, discovered item IDs, and checked
+  Gloomhaven item IDs, saved when you click Update.
+- `fhBasket`: the item keys in the shopping basket.
 
 Clearing cookies for the site resets everything.
+
+## Sharing
+
+"Copy share link" copies a `/?share=...` link holding your unlocks (not
+your basket). Opening it saves those unlocks to the recipient's
+`fhUnlocks` cookie and redirects to `/`.
 
 ## Spoilers
 
 Locked items are never named. Discovered items are picked by number,
 buildings are shown by number, and a locked prerequisite appears as
 `item N` in the Cost column.
-
-## Regenerating catalog data
-
-The catalog is generated from `../.github/docs/items.json` into
-`internal/catalog/data/catalog.gen.json` and embedded in the binary:
-
-```sh
-make gendata          # via Docker
-go run ./cmd/gendata  # without Docker
-```
 
 ## Running tests
 

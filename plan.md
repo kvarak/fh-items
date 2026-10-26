@@ -16,7 +16,12 @@ for running it.
 - **Basket.** Selecting an item moves it into the basket and pulls in its
   prerequisites. The basket total sums materials, herbs, and gold.
 - **Spoiler-free.** Locked items are never named.
+- **Gloomhaven imports.** One checkbox set per Trading Post level, shown
+  once building 37 reaches that level. Checked items join the Items table
+  at their gold price.
 - **Stateless server.** All state is in cookies (`fhUnlocks`, `fhBasket`).
-- **Catalog data.** Generated from the immutable
-  `.github/docs/items.json`, with a schema version and source checksum.
+- **Share links.** `/?share=` carries unlocks as base64url (level bytes
+  plus ID bitsets); the server stores them in the cookie and redirects.
+- **Catalog data.** A generated, embedded catalog with a schema version
+  and source checksum.
   The server refuses to load a mismatched schema version.

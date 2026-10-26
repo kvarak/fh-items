@@ -12,11 +12,9 @@ import (
 	"fh-items/internal/catalog"
 )
 
-// unlocksCookieName is the cookie written by the Update button in app.js.
+// unlocksCookieName is the cookie written by the Update button in app.js and
+// by share links.
 const unlocksCookieName = "fhUnlocks"
-
-// shareParamName is the query parameter carrying a compact shared unlocks value.
-const shareParamName = "share"
 
 type buildingLevels struct {
 	Craftsman   int `json:"craftsman"`
@@ -55,10 +53,6 @@ func unlocksFromRequest(r *http.Request) unlocks {
 	if err != nil {
 		return unlocks{}
 	}
-	return parseUnlocks(value)
-}
-
-func parseUnlocks(value string) unlocks {
 	var u unlocks
 	if err := json.Unmarshal([]byte(value), &u); err != nil {
 		return unlocks{}
@@ -66,13 +60,18 @@ func parseUnlocks(value string) unlocks {
 	return u
 }
 
+func idSet(ids []int) map[int]bool {
+	set := make(map[int]bool, len(ids))
+	for _, id := range ids {
+		set[id] = true
+	}
+	return set
+}
+
 // unlockedSet returns the IDs of unlocked items. Building-gated items unlock
 // by building level; all others only once marked discovered.
 func (u unlocks) unlockedSet(cat catalog.Catalog) map[int]bool {
-	discovered := make(map[int]bool, len(u.DiscoveredItemIDs))
-	for _, id := range u.DiscoveredItemIDs {
-		discovered[id] = true
-	}
+	discovered := idSet(u.DiscoveredItemIDs)
 	unlocked := make(map[int]bool, len(cat.Items))
 	for _, item := range cat.Items {
 		if item.RequiredBuilding != "" {
@@ -136,18 +135,25 @@ type pageData struct {
 	ItemCostJSON   template.JS
 }
 
-func gloomhavenKey(id int) string { return fmt.Sprintf("gh%d", id) }
-
 func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) pageData {
+	data := pageData{Buildings: u.Buildings}
+	costs := map[string]pageItemCost{}
+	data.addFrosthavenItems(cat, u, costs)
+	data.addGloomhavenItems(gh, u, costs)
+
+	costJSON, _ := json.Marshal(costs)
+	data.ItemCostJSON = template.JS(costJSON) //nolint:gosec // server-generated JSON, not user input
+	return data
+}
+
+func (data *pageData) addFrosthavenItems(cat catalog.Catalog, u unlocks, costs map[string]pageItemCost) {
 	byID := make(map[int]catalog.Item, len(cat.Items))
 	for _, item := range cat.Items {
 		byID[item.ID] = item
 	}
 	unlocked := u.unlockedSet(cat)
-
-	data := pageData{Buildings: u.Buildings}
-	costByID := map[string]pageItemCost{}
 	craftableMemo := map[int]bool{}
+
 	for _, item := range cat.Items {
 		if item.RequiredBuilding == "" {
 			data.Unlockables = append(data.Unlockables, pageUnlockable{ID: item.ID, Discovered: unlocked[item.ID]})
@@ -156,12 +162,13 @@ func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) 
 			continue
 		}
 
+		key := strconv.Itoa(item.ID)
 		var building string
 		if item.RequiredBuilding != "" {
 			building = fmt.Sprintf("%s.%d", buildingLabels[item.RequiredBuilding], item.RequiredBuildingLevel)
 		}
 		data.Items = append(data.Items, pageItem{
-			Key:         strconv.Itoa(item.ID),
+			Key:         key,
 			ID:          item.ID,
 			Name:        item.Name,
 			ImagePath:   fmt.Sprintf("/static/items/%03d.png", item.ID),
@@ -175,7 +182,7 @@ func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) 
 		for _, req := range item.Cost.RequiredItems {
 			reqIDs = append(reqIDs, req.ItemID)
 		}
-		costByID[strconv.Itoa(item.ID)] = pageItemCost{
+		costs[key] = pageItemCost{
 			Materials:       item.Cost.Materials,
 			Herbs:           item.Cost.Herbs,
 			AnyHerb:         item.Cost.AnyHerb,
@@ -183,11 +190,12 @@ func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) 
 			RequiredItemIDs: reqIDs,
 		}
 	}
+}
 
-	ghChecked := make(map[int]bool, len(u.GloomhavenIDs))
-	for _, id := range u.GloomhavenIDs {
-		ghChecked[id] = true
-	}
+// addGloomhavenItems groups imports into one set per Trading Post level; an
+// item reaches the Items table only when its level is reached and it is checked.
+func (data *pageData) addGloomhavenItems(gh []catalog.GloomhavenItem, u unlocks, costs map[string]pageItemCost) {
+	checked := idSet(u.GloomhavenIDs)
 	setIndex := map[int]int{}
 	for _, item := range gh {
 		available := u.Buildings.TradingPost >= item.TradingPostLevel
@@ -198,13 +206,14 @@ func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) 
 			data.GloomhavenSets = append(data.GloomhavenSets, pageGloomhavenSet{Level: item.TradingPostLevel, Visible: available})
 		}
 		set := &data.GloomhavenSets[idx]
-		set.Items = append(set.Items, pageUnlockable{ID: item.ID, Discovered: ghChecked[item.ID]})
+		set.Items = append(set.Items, pageUnlockable{ID: item.ID, Discovered: checked[item.ID]})
 
-		if !available || !ghChecked[item.ID] {
+		if !available || !checked[item.ID] {
 			continue
 		}
+		key := fmt.Sprintf("gh%d", item.ID)
 		data.Items = append(data.Items, pageItem{
-			Key:         gloomhavenKey(item.ID),
+			Key:         key,
 			ID:          item.ID,
 			Name:        item.Name,
 			ImagePath:   fmt.Sprintf("/static/items/gh/%03d.png", item.ID),
@@ -213,12 +222,8 @@ func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) 
 			Craftable:   true,
 			CostSummary: fmt.Sprintf("%d gold", item.Gold),
 		})
-		costByID[gloomhavenKey(item.ID)] = pageItemCost{Gold: item.Gold}
+		costs[key] = pageItemCost{Gold: item.Gold}
 	}
-
-	costJSON, _ := json.Marshal(costByID)
-	data.ItemCostJSON = template.JS(costJSON) //nolint:gosec // server-generated JSON, not user input
-	return data
 }
 
 // costSummary lists resources, gold, and prerequisite items. Prerequisites

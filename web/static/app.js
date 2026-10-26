@@ -45,11 +45,13 @@ const itemsBody = document.getElementById("items-body");
 const basketBody = document.getElementById("basket-body");
 const basketTotalEl = document.getElementById("basket-total");
 
+function rowsIn(body) {
+  return [...body.querySelectorAll("tr[data-item-row]")];
+}
+
 function updateBasketTotal() {
   const total = { materials: {}, herbs: {}, anyHerb: [], gold: 0 };
-  basketBody.querySelectorAll("tr[data-item-row]").forEach((row) => {
-    addCostInto(total, itemCosts[row.dataset.itemRow]);
-  });
+  for (const row of rowsIn(basketBody)) addCostInto(total, itemCosts[row.dataset.itemRow]);
   basketTotalEl.textContent = formatResources(total);
 }
 
@@ -72,9 +74,7 @@ function setRowInBasket(row, inBasket) {
     basketBody.appendChild(row);
     addRequiredItemsToBasket(row.dataset.itemRow);
   } else {
-    const next = [...itemsBody.querySelectorAll("tr[data-item-row]")].find(
-      (other) => parseInt(other.dataset.order, 10) > order
-    );
+    const next = rowsIn(itemsBody).find((other) => parseInt(other.dataset.order, 10) > order);
     itemsBody.insertBefore(row, next || null);
   }
   updateBasketTotal();
@@ -84,8 +84,7 @@ function setRowInBasket(row, inBasket) {
 
 // Basket contents are kept in a cookie so they survive the Update reload.
 function saveBasketCookie() {
-  const keys = [...basketBody.querySelectorAll("tr[data-item-row]")].map((row) => row.dataset.itemRow);
-  writeCookie(BASKET_COOKIE, keys);
+  writeCookie(BASKET_COOKIE, rowsIn(basketBody).map((row) => row.dataset.itemRow));
 }
 
 document.addEventListener("change", (event) => {
@@ -94,19 +93,14 @@ document.addEventListener("change", (event) => {
 });
 
 function readBuildingLevels() {
-  const out = {};
-  document.querySelectorAll(".building-level-input").forEach((input) => {
-    out[input.dataset.building] = parseInt(input.value, 10) || 0;
-  });
-  return out;
+  const inputs = document.querySelectorAll(".building-level-input");
+  return Object.fromEntries([...inputs].map((input) => [input.dataset.building, parseInt(input.value, 10) || 0]));
 }
 
 function readCheckedIDs(selector) {
-  const ids = [];
-  document.querySelectorAll(selector).forEach((input) => {
-    if (input.checked) ids.push(parseInt(input.dataset.itemId, 10));
-  });
-  return ids;
+  return [...document.querySelectorAll(selector)]
+    .filter((input) => input.checked)
+    .map((input) => parseInt(input.dataset.itemId, 10));
 }
 
 // --- Items table slot filter pills. ---
@@ -114,10 +108,10 @@ function readCheckedIDs(selector) {
 const activeSlotFilters = new Set();
 
 function applyItemFilters() {
-  itemsBody.querySelectorAll("tr[data-item-row]").forEach((row) => {
+  for (const row of rowsIn(itemsBody)) {
     const matchesSlot = activeSlotFilters.size === 0 || activeSlotFilters.has(row.dataset.slot);
     row.classList.toggle("filtered-out", !matchesSlot);
-  });
+  }
 }
 
 document.querySelectorAll("#slot-filter-pills .pill").forEach((button) => {
@@ -137,8 +131,8 @@ function currentUnlocks() {
   };
 }
 
-// Update saves building levels and discovered items, then loads the bare page so
-// the server re-renders from the saved cookie (a share link would override it).
+// Update saves building levels and discovered items, then reloads so the
+// server re-renders which items are unlocked.
 document.getElementById("unlocks-update-button").addEventListener("click", () => {
   writeCookie(UNLOCKS_COOKIE, currentUnlocks());
   window.location.href = "/";
@@ -165,7 +159,7 @@ function encodeShare({ buildings, unlockedItemIds, ghItemIds }) {
   return btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
-// The share link carries the unlocks as a query parameter; it is not saved until the recipient clicks Update.
+// The server stores a shared link's unlocks in the recipient's cookie, then redirects to "/".
 document.getElementById("unlocks-share-button").addEventListener("click", async () => {
   const link = `${window.location.origin}/?share=${encodeShare(currentUnlocks())}`;
   const status = document.getElementById("share-status");

@@ -8,6 +8,9 @@ import (
 	"net/url"
 )
 
+// shareParamName is the query parameter carrying a compact shared unlocks value.
+const shareParamName = "share"
+
 // shareCookieMaxAge matches the one-year lifetime app.js gives the cookie.
 const shareCookieMaxAge = 60 * 60 * 24 * 365
 

@@ -1,7 +1,9 @@
 package catalog
 
 import (
+	"errors"
 	"fmt"
+	"slices"
 )
 
 // Validate checks structural and referential integrity of the catalog. It
@@ -13,15 +15,13 @@ func (c Catalog) Validate() error {
 		errs = append(errs, fmt.Errorf("catalog schema version %d does not match expected %d", c.SchemaVersion, SchemaVersion))
 	}
 	if c.SourceChecksum == "" {
-		errs = append(errs, fmt.Errorf("catalog is missing a source checksum"))
+		errs = append(errs, errors.New("catalog is missing a source checksum"))
 	}
 
 	seenIDs := make(map[int]bool, len(c.Items))
 	for _, item := range c.Items {
-		if problems := item.validate(); len(problems) > 0 {
-			for _, p := range problems {
-				errs = append(errs, fmt.Errorf("item %d (%s): %w", item.ID, item.Name, p))
-			}
+		for _, p := range item.validate() {
+			errs = append(errs, fmt.Errorf("item %d (%s): %w", item.ID, item.Name, p))
 		}
 		if seenIDs[item.ID] {
 			errs = append(errs, fmt.Errorf("duplicate item id %d", item.ID))
@@ -42,7 +42,7 @@ func (c Catalog) Validate() error {
 		errs = append(errs, fmt.Errorf("prerequisite cycle detected: %v", cycle))
 	}
 
-	return joinErrors(errs)
+	return errors.Join(errs...)
 }
 
 // findRequirementCycle walks the RequiredItems graph looking for a cycle,
@@ -104,10 +104,10 @@ func (item Item) validate() []error {
 	var errs []error
 
 	if item.ID <= 0 {
-		errs = append(errs, fmt.Errorf("id must be positive"))
+		errs = append(errs, errors.New("id must be positive"))
 	}
 	if item.Name == "" {
-		errs = append(errs, fmt.Errorf("name must not be empty"))
+		errs = append(errs, errors.New("name must not be empty"))
 	}
 
 	for rt, qty := range item.Cost.Materials {
@@ -134,7 +134,7 @@ func (item Item) validate() []error {
 	seenReq := make(map[int]bool, len(item.Cost.RequiredItems))
 	for _, req := range item.Cost.RequiredItems {
 		if req.ItemID == item.ID {
-			errs = append(errs, fmt.Errorf("requires itself as a prerequisite"))
+			errs = append(errs, errors.New("requires itself as a prerequisite"))
 		}
 		if req.Quantity <= 0 {
 			errs = append(errs, fmt.Errorf("required item %d quantity must be positive, got %d", req.ItemID, req.Quantity))
@@ -145,10 +145,10 @@ func (item Item) validate() []error {
 		seenReq[req.ItemID] = true
 	}
 	if item.Cost.Gold < 0 {
-		errs = append(errs, fmt.Errorf("gold cost must not be negative"))
+		errs = append(errs, errors.New("gold cost must not be negative"))
 	}
 	if item.Cost.Gold > 0 && (len(item.Cost.Materials) > 0 || len(item.Cost.Herbs) > 0 || len(item.Cost.AnyHerb) > 0) {
-		errs = append(errs, fmt.Errorf("item has both a gold cost and a materials/herb cost"))
+		errs = append(errs, errors.New("item has both a gold cost and a materials/herb cost"))
 	}
 
 	switch item.RequiredBuilding {
@@ -157,38 +157,12 @@ func (item Item) validate() []error {
 		errs = append(errs, fmt.Errorf("unknown required building %q", item.RequiredBuilding))
 	}
 	if item.RequiredBuilding == "" && item.RequiredBuildingLevel != 0 {
-		errs = append(errs, fmt.Errorf("requiredBuildingLevel set without a requiredBuilding"))
+		errs = append(errs, errors.New("requiredBuildingLevel set without a requiredBuilding"))
 	}
 
 	return errs
 }
 
-func isMaterialType(rt ResourceType) bool {
-	for _, t := range MaterialTypes {
-		if t == rt {
-			return true
-		}
-	}
-	return false
-}
+func isMaterialType(rt ResourceType) bool { return slices.Contains(MaterialTypes, rt) }
 
-func isHerbType(rt ResourceType) bool {
-	for _, t := range HerbTypes {
-		if t == rt {
-			return true
-		}
-	}
-	return false
-}
-
-// joinErrors combines multiple errors into one, or returns nil if empty.
-func joinErrors(errs []error) error {
-	if len(errs) == 0 {
-		return nil
-	}
-	msg := fmt.Sprintf("%d validation error(s):", len(errs))
-	for _, e := range errs {
-		msg += "\n  - " + e.Error()
-	}
-	return fmt.Errorf("%s", msg)
-}
+func isHerbType(rt ResourceType) bool { return slices.Contains(HerbTypes, rt) }
