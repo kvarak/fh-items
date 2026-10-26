@@ -79,8 +79,8 @@ func TestGenerateFromSource(t *testing.T) {
 	if amulet.Cost.Gold != 15 {
 		t.Errorf("Amulet of Life gold cost = %d, want 15", amulet.Cost.Gold)
 	}
-	if amulet.RequiredBuilding != BuildingTradingPost || amulet.RequiredBuildingLevel != 0 {
-		t.Errorf("Amulet of Life building gate = %s/%d, want tradingPost/0 (unlockTradingPostLevel -1 means no level gate)",
+	if amulet.RequiredBuilding != BuildingTradingPost || amulet.RequiredBuildingLevel != 1 {
+		t.Errorf("Amulet of Life building gate = %s/%d, want tradingPost/1 (unlockTradingPostLevel -1 is the level 1 stock)",
 			amulet.RequiredBuilding, amulet.RequiredBuildingLevel)
 	}
 

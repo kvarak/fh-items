@@ -82,11 +82,8 @@ func convertItem(src sourceItem) (Item, error) {
 		item.RequiredBuildingLevel = *src.UnlockJewelerLevel
 	case src.UnlockTradingPostLevel != nil:
 		item.RequiredBuilding = BuildingTradingPost
-		// -1 in the source means "initially available", i.e. no level
-		// requirement beyond the building existing.
-		if *src.UnlockTradingPostLevel > 0 {
-			item.RequiredBuildingLevel = *src.UnlockTradingPostLevel
-		}
+		// -1 in the source marks the starting stock, available from level 1.
+		item.RequiredBuildingLevel = max(*src.UnlockTradingPostLevel, 1)
 	}
 
 	return item, nil

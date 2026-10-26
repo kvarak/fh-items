@@ -1821,7 +1821,8 @@
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 121,
@@ -1830,7 +1831,8 @@
       "cost": {
         "gold": 25
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 122,
@@ -1839,7 +1841,8 @@
       "cost": {
         "gold": 30
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 123,
@@ -1848,7 +1851,8 @@
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 124,
@@ -1857,7 +1861,8 @@
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 125,
@@ -1866,7 +1871,8 @@
       "cost": {
         "gold": 30
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 126,
@@ -1875,7 +1881,8 @@
       "cost": {
         "gold": 20
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 127,
@@ -1884,7 +1891,8 @@
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 128,
@@ -1893,7 +1901,8 @@
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost"
+      "requiredBuilding": "tradingPost",
+      "requiredBuildingLevel": 1
     },
     {
       "id": 129,

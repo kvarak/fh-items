@@ -13,7 +13,7 @@ import (
 func testCatalog() catalog.Catalog {
 	return catalog.Catalog{Items: []catalog.Item{
 		{ID: 1, Name: "Spyglass", RequiredBuilding: catalog.BuildingCraftsman, RequiredBuildingLevel: 2},
-		{ID: 2, Name: "Amulet of Life", RequiredBuilding: catalog.BuildingTradingPost},
+		{ID: 2, Name: "Amulet of Life", RequiredBuilding: catalog.BuildingTradingPost, RequiredBuildingLevel: 1},
 		{ID: 3, Name: "Unhealthy Mixture"},
 		{ID: 4, Name: "Cured Leather Armor", Cost: catalog.Cost{RequiredItems: []catalog.ItemRequirement{{ItemID: 3, Quantity: 1}}}},
 	}}
@@ -52,8 +52,8 @@ func TestUnlockedSet(t *testing.T) {
 	cat := testCatalog()
 
 	fresh := unlocks{}.unlockedSet(cat)
-	if fresh[1] || !fresh[2] || fresh[3] {
-		t.Errorf("fresh campaign: got %v, want only item 2 (no building level needed) unlocked", fresh)
+	if fresh[1] || fresh[2] || fresh[3] {
+		t.Errorf("fresh campaign: got %v, want nothing unlocked", fresh)
 	}
 
 	u := unlocks{Buildings: buildingLevels{Craftsman: 2}, DiscoveredItemIDs: []int{1, 3}}
