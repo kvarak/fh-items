@@ -36,23 +36,28 @@ func main() {
 		log.Fatalf("parsing index template: %v", err)
 	}
 
+	staticFS, err := fs.Sub(web.Static, "static")
+	if err != nil {
+		log.Fatalf("preparing static assets: %v", err)
+	}
+	backImages, err := itemBackImages(staticFS)
+	if err != nil {
+		log.Fatalf("finding item back images: %v", err)
+	}
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
 		if storeShareInCookie(w, r) {
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		}
-		data := buildPageData(cat, ghItems, unlocksFromRequest(r))
+		data := buildPageData(cat, ghItems, backImages, unlocksFromRequest(r))
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := indexTmpl.Execute(w, data); err != nil {
 			log.Printf("rendering index page: %v", err)
 		}
 	})
 
-	staticFS, err := fs.Sub(web.Static, "static")
-	if err != nil {
-		log.Fatalf("preparing static assets: %v", err)
-	}
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.FS(staticFS))))
 
 	fmt.Printf("listening on %s\n", *addr)

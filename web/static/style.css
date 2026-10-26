@@ -167,6 +167,24 @@ th, td {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+.item-thumb-back {
+  display: none;
+}
+
+.thumb:hover .item-thumb-back {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.5rem + 240px + 0.5rem);
+  transform: translateY(-50%);
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  z-index: 10;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 tr.status-unavailable {
   color: #888;
 }

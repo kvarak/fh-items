@@ -92,7 +92,7 @@
                   <input type="checkbox" class="item-select" autocomplete="off" {{if not .Craftable}}disabled{{end}}>
                 </span>
               </td>
-              <td><span class="thumb"><img class="item-thumb" src="{{.ImagePath}}" alt="Item {{.ID}}" loading="lazy"></span></td>
+              <td><span class="thumb"><img class="item-thumb" src="{{.ImagePath}}" alt="Item {{.ID}}" loading="lazy">{{if .BackImagePath}}<img class="item-thumb-back" src="{{.BackImagePath}}" alt="Item {{.ID}}, other side" loading="lazy">{{end}}</span></td>
               <td>[{{.ID}}] {{.Name}}</td>
               <td>{{.Slot}}</td>
               <td>{{.CostSummary}}</td>

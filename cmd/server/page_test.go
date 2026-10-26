@@ -4,8 +4,10 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"reflect"
 	"strings"
 	"testing"
+	"testing/fstest"
 
 	"fh-items/internal/catalog"
 )
@@ -87,7 +89,7 @@ func TestBuildPageData_GloomhavenItemsNeedLevelAndCheck(t *testing.T) {
 		{ID: 25, Name: "Jagged Sword", Slot: "1h", Gold: 30, TradingPostLevel: 1},
 	}
 	u := unlocks{Buildings: buildingLevels{TradingPost: 1}, GloomhavenIDs: []int{10, 21}}
-	data := buildPageData(catalog.Catalog{}, gh, u)
+	data := buildPageData(catalog.Catalog{}, gh, nil, u)
 
 	if len(data.Items) != 1 || data.Items[0].Key != "gh10" {
 		t.Fatalf("got items %+v, want only gh10 (checked and level reached)", data.Items)
@@ -97,6 +99,22 @@ func TestBuildPageData_GloomhavenItemsNeedLevelAndCheck(t *testing.T) {
 	}
 	if !strings.Contains(string(data.ItemCostJSON), `"gh10":{"gold":30}`) {
 		t.Errorf("cost JSON %s missing gh10 gold cost", data.ItemCostJSON)
+	}
+}
+
+func TestItemBackImages(t *testing.T) {
+	static := fstest.MapFS{
+		"items/033.png":      {},
+		"items/033-back.png": {},
+		"items/051-back.png": {},
+		"items/gh/010.png":   {},
+	}
+	got, err := itemBackImages(static)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if want := map[int]bool{33: true, 51: true}; !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v, want %v", got, want)
 	}
 }
 

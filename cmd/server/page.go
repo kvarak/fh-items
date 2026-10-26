@@ -4,8 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"io/fs"
 	"net/http"
 	"net/url"
+	"path"
 	"strconv"
 	"strings"
 
@@ -68,6 +70,23 @@ func idSet(ids []int) map[int]bool {
 	return set
 }
 
+// itemBackImages returns the Frosthaven item IDs that have an items/NNN-back.png second side.
+func itemBackImages(static fs.FS) (map[int]bool, error) {
+	paths, err := fs.Glob(static, "items/*-back.png")
+	if err != nil {
+		return nil, err
+	}
+	ids := map[int]bool{}
+	for _, p := range paths {
+		id, err := strconv.Atoi(strings.TrimSuffix(path.Base(p), "-back.png"))
+		if err != nil {
+			return nil, fmt.Errorf("unexpected back image name %q", p)
+		}
+		ids[id] = true
+	}
+	return ids, nil
+}
+
 // unlockedSet returns the IDs of unlocked items. Building-gated items unlock
 // by building level; all others only once marked discovered.
 func (u unlocks) unlockedSet(cat catalog.Catalog) map[int]bool {
@@ -93,14 +112,16 @@ var buildingLabels = map[catalog.BuildingType]string{
 // pageItem is one row in the Items table. Key is unique across Frosthaven
 // and Gloomhaven items, whose IDs overlap.
 type pageItem struct {
-	Key         string
-	ID          int
-	Name        string
-	ImagePath   string
-	Slot        string
-	Building    string
-	Craftable   bool
-	CostSummary string
+	Key       string
+	ID        int
+	Name      string
+	ImagePath string
+	// BackImagePath is the second side of a two-sided card, or empty.
+	BackImagePath string
+	Slot          string
+	Building      string
+	Craftable     bool
+	CostSummary   string
 }
 
 // pageItemCost is the per-item data app.js needs for the basket total and
@@ -135,10 +156,10 @@ type pageData struct {
 	ItemCostJSON   template.JS
 }
 
-func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) pageData {
+func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, backImages map[int]bool, u unlocks) pageData {
 	data := pageData{Buildings: u.Buildings}
 	costs := map[string]pageItemCost{}
-	data.addFrosthavenItems(cat, u, costs)
+	data.addFrosthavenItems(cat, backImages, u, costs)
 	data.addGloomhavenItems(gh, u, costs)
 
 	costJSON, _ := json.Marshal(costs)
@@ -146,7 +167,7 @@ func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) 
 	return data
 }
 
-func (data *pageData) addFrosthavenItems(cat catalog.Catalog, u unlocks, costs map[string]pageItemCost) {
+func (data *pageData) addFrosthavenItems(cat catalog.Catalog, backImages map[int]bool, u unlocks, costs map[string]pageItemCost) {
 	byID := make(map[int]catalog.Item, len(cat.Items))
 	for _, item := range cat.Items {
 		byID[item.ID] = item
@@ -167,15 +188,20 @@ func (data *pageData) addFrosthavenItems(cat catalog.Catalog, u unlocks, costs m
 		if item.RequiredBuilding != "" {
 			building = fmt.Sprintf("%s.%d", buildingLabels[item.RequiredBuilding], item.RequiredBuildingLevel)
 		}
+		var backImagePath string
+		if backImages[item.ID] {
+			backImagePath = fmt.Sprintf("/static/items/%03d-back.png", item.ID)
+		}
 		data.Items = append(data.Items, pageItem{
-			Key:         key,
-			ID:          item.ID,
-			Name:        item.Name,
-			ImagePath:   fmt.Sprintf("/static/items/%03d.png", item.ID),
-			Slot:        item.Slot,
-			Building:    building,
-			Craftable:   isCraftable(item.ID, byID, unlocked, craftableMemo),
-			CostSummary: costSummary(item.Cost, byID, unlocked),
+			Key:           key,
+			ID:            item.ID,
+			Name:          item.Name,
+			ImagePath:     fmt.Sprintf("/static/items/%03d.png", item.ID),
+			BackImagePath: backImagePath,
+			Slot:          item.Slot,
+			Building:      building,
+			Craftable:     isCraftable(item.ID, byID, unlocked, craftableMemo),
+			CostSummary:   costSummary(item.Cost, byID, unlocked),
 		})
 
 		var reqIDs []int
