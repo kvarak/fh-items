@@ -156,6 +156,8 @@ type pageData struct {
 	ItemCostJSON   template.JS
 	Commit         string
 	ShortCommit    string
+	GoatCounterURL string
+	GoatCounterJS  string
 }
 
 func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, backImages map[int]bool, u unlocks) pageData {

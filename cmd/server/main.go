@@ -10,6 +10,7 @@ import (
 	"io/fs"
 	"log"
 	"net/http"
+	"os"
 
 	"fh-items/internal/catalog"
 	"fh-items/web"
@@ -17,7 +18,17 @@ import (
 
 func main() {
 	addr := flag.String("addr", ":8080", "address to listen on")
+	goatCounter := flag.String("goatcounter", os.Getenv("GOATCOUNTER_URL"), "GoatCounter endpoint such as https://stats.example.com/count; empty disables analytics (env GOATCOUNTER_URL)")
 	flag.Parse()
+
+	var goatCounterJS string
+	if *goatCounter != "" {
+		var err error
+		if goatCounterJS, err = goatCounterScript(*goatCounter); err != nil {
+			log.Fatal(err)
+		}
+		log.Printf("analytics: counting pageviews at %s", *goatCounter)
+	}
 
 	cat, err := catalog.Load()
 	if err != nil {
@@ -59,6 +70,8 @@ func main() {
 		data := buildPageData(cat, ghItems, backImages, unlocksFromRequest(r))
 		data.Commit = sha
 		data.ShortCommit = shortSHA
+		data.GoatCounterURL = *goatCounter
+		data.GoatCounterJS = goatCounterJS
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := indexTmpl.Execute(w, data); err != nil {
 			log.Printf("rendering index page: %v", err)

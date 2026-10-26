@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>fh-items</title>
   <link rel="stylesheet" href="/static/style.css">
+  {{if .GoatCounterURL}}
+  <script>
+    window.goatcounter = {
+      // Hostname prefix keeps apps apart on the shared dashboard; pathname drops any query string.
+      path: function () {
+        return location.hostname + location.pathname;
+      }
+    };
+  </script>
+  <script data-goatcounter="{{.GoatCounterURL}}" async src="{{.GoatCounterJS}}"></script>
+  {{end}}
 </head>
 <body>
   <h1>fh-items</h1>
@@ -107,7 +118,8 @@
   </div>
 
   <p class="hint">
-    State is stored as cookies in your browser, by using this app you agree to the usage of cookies for storing your game state. No other data is collected or transmitted.
+    State is stored as cookies in your browser, by using this app you agree to the usage of cookies for storing your game state.<br/>
+    {{if .GoatCounterURL}}Anonymous page views are counted with a self-hosted GoatCounter, which uses no cookies.{{else}}No other data is collected or transmitted.{{end}}
   </p>
   <p class="hint">
     <a href="https://github.com/kvarak/fh-items">fh-items on GitHub</a>

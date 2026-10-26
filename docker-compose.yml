@@ -1,0 +1,9 @@
+services:
+  fh-items:
+    image: ghcr.io/kvarak/fh-items:latest
+    ports:
+      - "8080:8080"
+    environment:
+      # GoatCounter endpoint, e.g. https://stats.example.com/count; empty disables analytics.
+      GOATCOUNTER_URL: "${GOATCOUNTER_URL:-}"
+    restart: unless-stopped
