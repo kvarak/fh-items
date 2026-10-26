@@ -46,12 +46,19 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
+	sha := buildCommit()
+	shortSHA := sha
+	if len(shortSHA) > 7 {
+		shortSHA = shortSHA[:7]
+	}
 	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
 		if storeShareInCookie(w, r) {
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 			return
 		}
 		data := buildPageData(cat, ghItems, backImages, unlocksFromRequest(r))
+		data.Commit = sha
+		data.ShortCommit = shortSHA
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := indexTmpl.Execute(w, data); err != nil {
 			log.Printf("rendering index page: %v", err)

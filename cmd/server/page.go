@@ -154,6 +154,8 @@ type pageData struct {
 	Unlockables    []pageUnlockable
 	GloomhavenSets []pageGloomhavenSet
 	ItemCostJSON   template.JS
+	Commit         string
+	ShortCommit    string
 }
 
 func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, backImages map[int]bool, u unlocks) pageData {

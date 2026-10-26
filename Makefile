@@ -11,7 +11,7 @@ GOVULNCHECK := golang.org/x/vuln/cmd/govulncheck@v1.9.0
 # from the workspace - and includes the Go toolchain so test can also run
 # inside it.
 build:
-	docker build -t $(IMAGE) -f $(DOCKERFILE) $(CONTEXT)
+	docker build --build-arg GIT_SHA=$$(git rev-parse HEAD) -t $(IMAGE) -f $(DOCKERFILE) $(CONTEXT)
 
 test: build
 	docker run --rm $(IMAGE) go test ./...

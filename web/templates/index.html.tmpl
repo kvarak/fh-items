@@ -107,7 +107,11 @@
   </div>
 
   <p class="hint">
-    State is stored as cookies in your browser, by using this app you agree to the usage of cookies for storing your game state.
+    State is stored as cookies in your browser, by using this app you agree to the usage of cookies for storing your game state. No other data is collected or transmitted.
+  </p>
+  <p class="hint">
+    <a href="https://github.com/kvarak/fh-items">fh-items on GitHub</a>
+    {{if .Commit}}&middot; built from commit <a href="https://github.com/kvarak/fh-items/commit/{{.Commit}}">{{.ShortCommit}}</a>{{end}}
   </p>
 
   <script id="item-cost-data" type="application/json">{{.ItemCostJSON}}</script>

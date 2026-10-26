@@ -46,6 +46,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
+          build-args: GIT_SHA=${{ github.sha }}
           # arm64 and arm/v7 cover 64- and 32-bit Raspberry Pi OS on a Pi 4.
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: ${{ env.PUBLISH == 'true' }}
