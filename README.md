@@ -39,5 +39,9 @@ buildings are shown by number, and a locked prerequisite appears as
 
 ```sh
 make test       # via Docker
+make check      # all checks (gofmt, vet, staticcheck, govulncheck, race tests, JS syntax), needs Go and Node
 go test ./...   # without Docker
 ```
+
+CI runs `make check` on every push and pull request, and publishes the
+Docker image to `ghcr.io` on pushes to `main`.
