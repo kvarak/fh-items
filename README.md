@@ -44,4 +44,5 @@ go test ./...   # without Docker
 ```
 
 CI runs `make check` on every push and pull request, and publishes the
-Docker image to `ghcr.io` on pushes to `main`.
+Docker image to `ghcr.io` on pushes to `main` for `linux/amd64`,
+`linux/arm64`, and `linux/arm/v7` (Raspberry Pi 4 on 64- or 32-bit OS).
