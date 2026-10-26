@@ -22,8 +22,7 @@ const (
 	ResourceSnowthistle ResourceType = "snowthistle"
 )
 
-// MaterialTypes are the raw materials drawn from a character's personal
-// supply (never the shared herb-sourcing rule).
+// MaterialTypes are the raw materials (as opposed to herbs).
 var MaterialTypes = []ResourceType{ResourceLumber, ResourceMetal, ResourceHide}
 
 // HerbTypes are the specific herb resource types (as opposed to the "any
@@ -42,9 +41,8 @@ const (
 	BuildingTradingPost BuildingType = "tradingPost"
 )
 
-// ItemRequirement is a prerequisite item (and quantity) that must be owned
-// and is consumed when crafting another item, per Frosthaven's item-upgrade
-// recipes (e.g. a Reinforced Shield requires 1 Crude Shield).
+// ItemRequirement is a prerequisite item (and quantity) consumed when
+// crafting another item, per Frosthaven's item-upgrade recipes.
 type ItemRequirement struct {
 	ItemID   int `json:"itemId"`
 	Quantity int `json:"quantity"`
@@ -62,44 +60,26 @@ type Cost struct {
 	// of one freely-chosen herb type (e.g. [2, 1] means "2 of one herb
 	// type plus 1 of a different herb type").
 	AnyHerb []int `json:"anyHerb,omitempty"`
-	// RequiredItems lists prerequisite items (and quantities) that must be
-	// owned and are consumed as crafting ingredients (Frosthaven's
-	// item-upgrade recipes).
+	// RequiredItems lists prerequisite items consumed as crafting
+	// ingredients (Frosthaven's item-upgrade recipes).
 	RequiredItems []ItemRequirement `json:"requiredItems,omitempty"`
 	// Gold is the gold price for shop-purchased items.
 	Gold int `json:"gold,omitempty"`
 }
 
-// IsEmpty reports whether this cost requires nothing at all.
-func (c Cost) IsEmpty() bool {
-	return len(c.Materials) == 0 && len(c.Herbs) == 0 && len(c.AnyHerb) == 0 &&
-		len(c.RequiredItems) == 0 && c.Gold == 0
-}
-
-// Item is a single craftable or purchasable item from the catalog. This is
-// static, derived data - see internal/state for mutable per-campaign state
-// such as unlock status and remaining copies.
+// Item is a single craftable or purchasable item from the catalog.
 type Item struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 	// Slot is the equipment slot (e.g. "head", "body", "1h"); empty for
 	// items with no slot (e.g. party items).
 	Slot string `json:"slot,omitempty"`
-	// Count is the total number of physical copies that exist of this item.
-	Count int  `json:"count"`
-	Cost  Cost `json:"cost"`
+	Cost Cost   `json:"cost"`
 	// RequiredBuilding/RequiredBuildingLevel gate items unlocked by
-	// building level (Craftsman/Jeweler/Trading Post catalogs). Items
-	// obtained other ways (blueprints, loot, scenario rewards) leave
-	// RequiredBuilding empty; their availability is tracked explicitly in
-	// runtime state instead.
+	// building level. Items obtained other ways (blueprints, loot, scenario
+	// rewards) leave RequiredBuilding empty.
 	RequiredBuilding      BuildingType `json:"requiredBuilding,omitempty"`
 	RequiredBuildingLevel int          `json:"requiredBuildingLevel,omitempty"`
-	// Source is the human-readable acquisition source from the rulebook
-	// data (e.g. "Craftsman 3", "Random Blueprint", "Initially Available").
-	Source string `json:"source,omitempty"`
-	// Description is the card's rules text, for display purposes.
-	Description string `json:"description,omitempty"`
 }
 
 // Catalog is the full versioned, generated item catalog.

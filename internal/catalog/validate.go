@@ -46,9 +46,8 @@ func (c Catalog) Validate() error {
 }
 
 // findRequirementCycle walks the RequiredItems graph looking for a cycle,
-// returning the item IDs forming it (or nil if the graph is acyclic). Item
-// prerequisites must form a DAG - Frosthaven upgrade chains never loop back
-// on themselves, and the affordability engine assumes as much.
+// returning the item IDs forming it (or nil if the graph is acyclic).
+// Frosthaven upgrade chains never loop, and prerequisite resolution relies on that.
 func findRequirementCycle(items []Item) []int {
 	requirementsOf := make(map[int][]int, len(items))
 	for _, item := range items {
@@ -110,9 +109,6 @@ func (item Item) validate() []error {
 	if item.Name == "" {
 		errs = append(errs, fmt.Errorf("name must not be empty"))
 	}
-	if item.Count < 0 {
-		errs = append(errs, fmt.Errorf("count must not be negative"))
-	}
 
 	for rt, qty := range item.Cost.Materials {
 		if !isMaterialType(rt) {
@@ -151,7 +147,7 @@ func (item Item) validate() []error {
 	if item.Cost.Gold < 0 {
 		errs = append(errs, fmt.Errorf("gold cost must not be negative"))
 	}
-	if item.Cost.Gold > 0 && !item.Cost.IsEmpty() && (len(item.Cost.Materials) > 0 || len(item.Cost.Herbs) > 0 || len(item.Cost.AnyHerb) > 0) {
+	if item.Cost.Gold > 0 && (len(item.Cost.Materials) > 0 || len(item.Cost.Herbs) > 0 || len(item.Cost.AnyHerb) > 0) {
 		errs = append(errs, fmt.Errorf("item has both a gold cost and a materials/herb cost"))
 	}
 

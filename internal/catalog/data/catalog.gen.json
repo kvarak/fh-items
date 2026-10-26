@@ -1,117 +1,95 @@
 {
   "schemaVersion": 1,
-  "sourceChecksum": "ce8bc1717fca97f82641cac9bba0edea6ab667b912d470b7a6a4fef92071bb93",
+  "sourceChecksum": "c6f81124f1d8207cccfe1b31a6abdb237065bc2c97d95cb654debf3dc3b4d75d",
   "items": [
     {
       "id": 1,
       "name": "Spyglass",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "During your attack ability, gain advantage on one attack."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 2,
       "name": "Crude Helmet",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "When you are attacked, treat any ^modifier_2x_circle^ attack modifier card the enemy draws as a ^modifier_plus_1^ instead."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 3,
       "name": "Traveling Cloak",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "At the start of the scenario increase your maximum hit point value by 1."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 4,
       "name": "Crude Hide Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "On the next two attacks targeting you, the attacker gains disadvantage."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 5,
       "name": "Crude Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "During your move ability, add +1 ^fh-move^"
+      "requiredBuildingLevel": 1
     },
     {
       "id": 6,
       "name": "Flexible Slippers",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "During your end-of-turn looting, loot an adjacent hex instead of the hex you occupy."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 7,
       "name": "Crude Bow",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "During your turn, add +1 ^fh-range^ to one of your ranged attacks."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 8,
       "name": "Crude Spear",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1,
@@ -119,15 +97,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "During your turn, one of your single-target melee attack abilities may target an enemy two hexes away."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 9,
       "name": "Protective Scepter",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -135,60 +110,48 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "During you turn, grant one ally within ^fh-range^ 2: ^fh-shield^ 1. ^eot^"
+      "requiredBuildingLevel": 1
     },
     {
       "id": 10,
       "name": "Crude Shield",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 1,
-      "source": "Craftsman 1",
-      "description": "When an enemy would apply a negative condition to you, prevent the condition"
+      "requiredBuildingLevel": 1
     },
     {
       "id": 11,
       "name": "Simple Charm",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 2
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 2,
-      "source": "Craftsman 2",
-      "description": "At the start of the scenario remove one ^modifier_minus_one_circle^ modifier card from your attack modifier deck."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 12,
       "name": "Crude Chain Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 2,
-      "source": "Craftsman 2",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 2 for the attack."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 13,
       "name": "Dancing Slippers",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
@@ -198,15 +161,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 2,
-      "source": "Craftsman 2",
-      "description": "After you suffer ^damage^ from an attack, perform: ^fh-move^ 2"
+      "requiredBuildingLevel": 2
     },
     {
       "id": 14,
       "name": "Heavy Sword",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -214,15 +174,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 2,
-      "source": "Craftsman 2",
-      "description": "During your melee attack ability, add +1 ^attack^ to one attack."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 15,
       "name": "Reinforced Shield",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1
@@ -235,15 +192,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 2,
-      "source": "Craftsman 2",
-      "description": "When an enemy would apply a negative condition to you, prevent the condition."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 16,
       "name": "Inspiring Helmet",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -257,15 +211,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 3,
-      "source": "Craftsman 3",
-      "description": "During your turn, grant all adjacent allies: ^fh-move^ 2"
+      "requiredBuildingLevel": 3
     },
     {
       "id": 17,
       "name": "Cured Leather Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -279,15 +230,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 3,
-      "source": "Craftsman 3\nTreasure 50",
-      "description": "On the next two attacks targeting you, the attacker gains disadvantage."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 18,
       "name": "Rough Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
@@ -300,15 +248,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 3,
-      "source": "Craftsman 3",
-      "description": "During your turn add +1 ^fh-move^ to all your move abilities."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 19,
       "name": "Ringing Hammer",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1,
@@ -319,15 +264,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 3,
-      "source": "Craftsman 3",
-      "description": "During your attack ability add $wfh-muddle$ to all your attacks."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 20,
       "name": "Well Strung Bow",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1
@@ -340,15 +282,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 3,
-      "source": "Craftsman 3",
-      "description": "During your turn, add +1 ^fh-range^ to all your ranged attacks."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 21,
       "name": "Chain Hood",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -356,15 +295,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 4,
-      "source": "Craftsman 4",
-      "description": "While you are adjacent to tree or more enemies, gain ^fh-shield^ 1."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 22,
       "name": "Heavy Chain Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -377,15 +313,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 4,
-      "source": "Craftsman 4",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 3 for the attack."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 23,
       "name": "Sturdy Greaves",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2,
@@ -393,15 +326,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 4,
-      "source": "Craftsman 4",
-      "description": "At the start of your turn, add -2 ^fh-move^ to all your move abilities to gain ^fh-shield^ this round. ^eot^"
+      "requiredBuildingLevel": 4
     },
     {
       "id": 24,
       "name": "Corrupted Blade",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -415,15 +345,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 4,
-      "source": "Craftsman 4\nWR-04",
-      "description": "During your melee attack ability, add $wfh-wound$, $wfh-poison$, $wfh-muddle$ to one attack."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 25,
       "name": "Soothing Scepter",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -434,15 +361,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 4,
-      "source": "Craftsman 4",
-      "description": "During your turn, perform $wfh-regenerate$ ~!^target^ 1 ally, ^fh-range^ 2!~"
+      "requiredBuildingLevel": 4
     },
     {
       "id": 26,
       "name": "Truesight Lenses",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -450,15 +374,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 5,
-      "source": "Craftsman 5",
-      "description": "During your attack ability, treat all negative and ^modifier_no_damage^ modifier cards as ^modifier_zero_circle^ instead."
+      "requiredBuildingLevel": 5
     },
     {
       "id": 27,
       "name": "Cloak of Warding",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
@@ -475,15 +396,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 5,
-      "source": "Craftsman 5\nSR-17",
-      "description": "Immediately after an enemy ends its move ability adjacent to you, perform $wfh-push$ 1 ~!^target^ the enemy!~"
+      "requiredBuildingLevel": 5
     },
     {
       "id": 28,
       "name": "Sturdy Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
@@ -496,15 +414,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 5,
-      "source": "Craftsman 5",
-      "description": "During your turn add +1 ^fh-move^ to all your move abilities and ignore difficult terrain."
+      "requiredBuildingLevel": 5
     },
     {
       "id": 29,
       "name": "Cleaving Axe",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1,
@@ -512,15 +427,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 5,
-      "source": "Craftsman 5",
-      "description": "After your melee attack, one enemy adjacent to the target suffers ^damage^ 2."
+      "requiredBuildingLevel": 5
     },
     {
       "id": 30,
       "name": "Parrying Gauntlet",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -528,15 +440,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 5,
-      "source": "Craftsman 5",
-      "description": "Immediately after an enemy ends its move ability adjacent to you, perform ^attack^ 3 ~!^target^ the enemy!~"
+      "requiredBuildingLevel": 5
     },
     {
       "id": 31,
       "name": "Deathproof Charm",
       "slot": "head",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -550,15 +459,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 6,
-      "source": "Craftsman 6\nWR-37\nSO-11",
-      "description": "When you suffer ^damage^ from any source, negate the ^damage^."
+      "requiredBuildingLevel": 6
     },
     {
       "id": 32,
       "name": "Shell Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2,
@@ -567,15 +473,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 6,
-      "source": "Craftsman 6",
-      "description": "During yur turn, perform $wfh-ward$ ~!self!~"
+      "requiredBuildingLevel": 6
     },
     {
       "id": 33,
       "name": "Volatile Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -592,15 +495,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 6,
-      "source": "Craftsman 6",
-      "description": "Up to once each turn during your move ability, add +1 ^fh-move^, then flip this card over at the end of your turn."
+      "requiredBuildingLevel": 6
     },
     {
       "id": 34,
       "name": "Shrapnel Bomb",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 2
@@ -613,15 +513,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 6,
-      "source": "Craftsman 6",
-      "description": "After your ranged attack, all enemies adjacent to the target suffer ^damage^ 2."
+      "requiredBuildingLevel": 6
     },
     {
       "id": 35,
       "name": "Kite Shield",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 2,
@@ -629,15 +526,12 @@
         }
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 6,
-      "source": "Craftsman 6",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 1 for the attack and prevent any negative conditions from the attack."
+      "requiredBuildingLevel": 6
     },
     {
       "id": 36,
       "name": "Plumed Helmet",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
@@ -653,15 +547,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 7,
-      "source": "Craftsman 7",
-      "description": "When you are attacked by an attack with disadvantage, treat all ^modifier_zero_circle^ and ^modifier_plus_1^ attack modifier cards as ^modifier_minus_one_circle^."
+      "requiredBuildingLevel": 7
     },
     {
       "id": 37,
       "name": "Ghost Cloak",
       "slot": "body",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1
@@ -678,15 +569,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 7,
-      "source": "Craftsman 7\nSR-36",
-      "description": "During your turn suffer ^damage^ 3 to perform $invisible$ ~!self!~"
+      "requiredBuildingLevel": 7
     },
     {
       "id": 38,
       "name": "Duelists Shoes",
       "slot": "legs",
-      "count": 1,
       "cost": {
         "requiredItems": [
           {
@@ -700,15 +588,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 7,
-      "source": "Craftsman 7",
-      "description": "During your turn, perform: ^fh-move^ 2 This movement must end adjacent to an enemy."
+      "requiredBuildingLevel": 7
     },
     {
       "id": 39,
       "name": "Abyss Axe",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -726,15 +611,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 7,
-      "source": "Craftsman 7",
-      "description": "During your attack ability, add +3 ^attack^ and $wfh-pierce$ 1 to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom."
+      "requiredBuildingLevel": 7
     },
     {
       "id": 40,
       "name": "Heartstrike Bow",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "materials": {
           "lumber": 1
@@ -751,15 +633,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 7,
-      "source": "Craftsman 7",
-      "description": "During your turn, add +1 ^attack^ and +2 ^fh-range^ to one of your ranged attacks."
+      "requiredBuildingLevel": 7
     },
     {
       "id": 41,
       "name": "Intricate Charm",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -776,15 +655,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 8,
-      "source": "Craftsman 8",
-      "description": "At the start of the scenario remove one ^modifier_zero_circle^ and one ^modifier_minus_one_circle^ modifier card from your attack modifier deck."
+      "requiredBuildingLevel": 8
     },
     {
       "id": 42,
       "name": "Ornate Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 3
@@ -797,15 +673,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 8,
-      "source": "Craftsman 8",
-      "description": "On the next two sources of ^damage^ from attacks targeting you gain ^fh-shield^ 2 for the attacks."
+      "requiredBuildingLevel": 8
     },
     {
       "id": 43,
       "name": "Kicking Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -822,15 +695,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 8,
-      "source": "Craftsman 8",
-      "description": "During your melee attack ability, add $wfh-push$ 2 to one attack."
+      "requiredBuildingLevel": 8
     },
     {
       "id": 44,
       "name": "Sword of Absolution",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -844,15 +714,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 8,
-      "source": "Craftsman 8",
-      "description": "When you would gain $wfh-poison$ or $wfh-curse$, gain $wfh-bless$ instead."
+      "requiredBuildingLevel": 8
     },
     {
       "id": 45,
       "name": "Master Scepter",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -866,15 +733,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 8,
-      "source": "Craftsman 8",
-      "description": "During your turn, perform: ^fh-heal^ 1 ~!^target^ 1 ally, ^fh-range^ 2, $wfh-ward$!~ "
+      "requiredBuildingLevel": 8
     },
     {
       "id": 46,
       "name": "Double-Lens Goggles",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1
@@ -891,15 +755,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 9,
-      "source": "Craftsman 9",
-      "description": "During your attack ability, gain advantage on all attacks and treat all ^modifier_zero_circle^ and ^modifier_minus_one_circle^ modifier cards as ^modifier_plus_1^ instead."
+      "requiredBuildingLevel": 9
     },
     {
       "id": 47,
       "name": "Robes of Doom",
       "slot": "body",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -917,15 +778,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 9,
-      "source": "Craftsman 9\nWR-34",
-      "description": "On the next two sources of ^damage^ from attacks targeting you, suffer ^damage^ 3 to give the attacker $wfh-brittle$."
+      "requiredBuildingLevel": 9
     },
     {
       "id": 48,
       "name": "Living Shoes",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2
@@ -941,15 +799,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 9,
-      "source": "Craftsman 9",
-      "description": "After an ally's heal ability targeting you, perform: ^fh-move^ 2"
+      "requiredBuildingLevel": 9
     },
     {
       "id": 49,
       "name": "Cruel Dagger",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -966,15 +821,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 9,
-      "source": "Craftsman 9",
-      "description": "During your melee attack ability, add +1 ^attack^ and $wfh-wound$ to one attack."
+      "requiredBuildingLevel": 9
     },
     {
       "id": 50,
       "name": "Shield of Reciprocity",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -995,15 +847,12 @@
         ]
       },
       "requiredBuilding": "craftsman",
-      "requiredBuildingLevel": 9,
-      "source": "Craftsman 9",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 1 for the attack and flip this card over."
+      "requiredBuildingLevel": 9
     },
     {
       "id": 51,
       "name": "Spiked Collar",
       "slot": "head",
-      "count": 2,
       "cost": {
         "herbs": {
           "flamefruit": 1
@@ -1014,15 +863,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint\nSO-48",
-      "description": "During your turn perform $wfh-wound$ ~!self!~"
+      }
     },
     {
       "id": 52,
       "name": "Laser Lens",
       "slot": "head",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1034,15 +880,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "During your turn, @wfh-fire-consume@ to cause up to two enemies within ^fh-range^ 4 to suffer ^damage^ 1."
+      }
     },
     {
       "id": 53,
       "name": "Hobnail Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -1057,15 +900,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "After you move 4 or more hexes during your turn, gain ^retaliate^ 1 for the round."
+      }
     },
     {
       "id": 54,
       "name": "Restful Slippers",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "herbs": {
           "snowthistle": 1
@@ -1080,15 +920,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "During your short rest, instead of randomly losing one card from your discard pile, randomly draw three cards from your discard pile and choose one to lose."
+      }
     },
     {
       "id": 55,
       "name": "Biting Gauntlet",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -1100,43 +937,34 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "When you are attacked by an adjacent enemy, gain ^retaliate^ 2 for the attack."
+      }
     },
     {
       "id": 56,
       "name": "Scavenger's Magnet",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1,
           "metal": 1
         }
-      },
-      "source": "Random Blueprint",
-      "description": "During your turn, @wfh-earth-consume@ to loot one adjacent loot token."
+      }
     },
     {
       "id": 57,
       "name": "Shovel",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1,
           "metal": 1
         }
-      },
-      "source": "Random Blueprint",
-      "description": "During your turn, destroy one adjacent obstacle, hazardous terrain, difficult terrain, icy terrain, or trap tile."
+      }
     },
     {
       "id": 58,
       "name": "Slippery Sword",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1152,15 +980,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "During your melee attack ability, add +2 ^attack^ to one attack. After the ability, gain $wfh-disarm$."
+      }
     },
     {
       "id": 59,
       "name": "Charm of Expertise",
       "slot": "head",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1172,15 +997,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "At the start of the scenario, for the scenario, gain one 1-mark perk from your character sheet which you have not yet gained."
+      }
     },
     {
       "id": 60,
       "name": "Cloak of Many Pockets",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 3
@@ -1191,15 +1013,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "At the start of the scenario, bring up to two additional #small# items."
+      }
     },
     {
       "id": 61,
       "name": "Spiked Shell",
       "slot": "body",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -1214,15 +1033,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "Immediately after you are attacked by an adjacent enemy, that enemy suffers ^damage^ X, where is X is your ^fh-shield^ value for the attack."
+      }
     },
     {
       "id": 62,
       "name": "Everlasting Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1234,15 +1050,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "During your move ability, add +1 ^fh-move^ and gain $wfh-regenerate$"
+      }
     },
     {
       "id": 63,
       "name": "Shadow Stompers",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1254,15 +1067,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "During your move ability, @wfh-dark-consume@ add +2 ^fh-move^"
+      }
     },
     {
       "id": 64,
       "name": "Detonator",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -1277,15 +1087,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "When one of your summons is killed, all enemies adjacent to it suffer ^damage^ 2 and gain $wfh-wound$."
+      }
     },
     {
       "id": 65,
       "name": "Rust Powder",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1
@@ -1296,15 +1103,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Random Blueprint",
-      "description": "During your turn, place a character token on one normal or elite enemy within ^fh-range^ 3.  That enemy gains -1 ^fh-shield^ for the scenario. ^ongoing^"
+      }
     },
     {
       "id": 66,
       "name": "Amulet of Eternal Life",
       "slot": "head",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1316,15 +1120,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Scenario 188",
-      "description": "At the start of your rest, perform: ^fh-heal^ 1 ~!self!~"
+      }
     },
     {
       "id": 67,
       "name": "Converging Lenses",
       "slot": "head",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 1
@@ -1339,15 +1140,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "unknown",
-      "description": "When you are attacked, add +1 ^attack^ to attack to instead of drawing an attack modifier card and flip this card over."
+      }
     },
     {
       "id": 68,
       "name": "Scaled Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1359,15 +1157,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 22",
-      "description": "On the next three sources of 2 or fewer ^damage^ you would suffer, negate the ^damage^."
+      }
     },
     {
       "id": 69,
       "name": "Feathered Cloak",
       "slot": "body",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1379,15 +1174,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Scenario 32",
-      "description": "When you suffer ^damage^ from an attack, @wfh-air-consume@ to gain ^fh-shield^ 3 for the attack."
+      }
     },
     {
       "id": 70,
       "name": "Aesther Robe",
       "slot": "body",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1399,15 +1191,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Scenario 81",
-      "description": "When you suffer ^damage^ from ^retaliate^, reduce the ^damage^ to 1. If it already 1, reduce it to 0 instead."
+      }
     },
     {
       "id": 71,
       "name": "Bone Boots",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1
@@ -1418,15 +1207,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 49",
-      "description": "After your ability where you kill an enemy, perform: ^fh-move^ 4"
+      }
     },
     {
       "id": 72,
       "name": "Oak Staff",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "materials": {
           "lumber": 1
@@ -1437,15 +1223,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 82",
-      "description": "During you turn, @wfh-light-consume@ to perform: $wfh-bless$ ~!^fh-range^ 3!~"
+      }
     },
     {
       "id": 73,
       "name": "Energizing Baton",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 2
@@ -1456,15 +1239,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Scenario 44",
-      "description": "When you apply a positive condition to an ally, a different ally within ^fh-range^ 3 gains the same condition."
+      }
     },
     {
       "id": 74,
       "name": "Shock Grenades",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "requiredItems": [
           {
@@ -1476,15 +1256,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Scenario 51",
-      "description": "During your turn, perform $wfh-muddle$ ~!^fh-range^ 2!~ *cone_1_1*"
+      }
     },
     {
       "id": 75,
       "name": "Rose Gauntlet",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "herbs": {
           "flamefruit": 1,
@@ -1496,15 +1273,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Scenario 110",
-      "description": "After any ally within ^fh-range^ 2 suffers ^damage^ from an attack, remove all negative conditions from the ally then perform: ^fh-heal^ 3 ~!^target^ the ally, $wfh-pull$ 1!~"
+      }
     },
     {
       "id": 76,
       "name": "Horn of Command",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -1513,15 +1287,12 @@
         "herbs": {
           "rockroot": 1
         }
-      },
-      "source": "Treasure 70",
-      "description": "During one of your summons' turns, decide how it performs its abilities."
+      }
     },
     {
       "id": 77,
       "name": "Chaos Cannon",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 2
@@ -1532,15 +1303,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 40",
-      "description": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex within ^fh-range^ 2 with a different type of tile listed above."
+      }
     },
     {
       "id": 78,
       "name": "Balanced Scales",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 1,
@@ -1552,15 +1320,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 31",
-      "description": "Once each turn, during your attack ability, gain advantage on one attack, then flip this card over at the end of your turn."
+      }
     },
     {
       "id": 79,
       "name": "Roasted Fowl",
       "slot": "small",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2
@@ -1569,15 +1334,12 @@
           "flamefruit": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Scenario 93",
-      "description": "During you turn, add +1 ^attack^ to all your attacks and perform: ^fh-heal^ 2 ~!self!~"
+      }
     },
     {
       "id": 80,
       "name": "Living Stone",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "rockroot": 1
@@ -1592,15 +1354,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 72",
-      "description": "When you would suffer 4 or fewer ^damage^ from attack, negate the ^damage^ and perform ^fh-heal^ X ~!self!~ where x is the amount of damage you would have suffered."
+      }
     },
     {
       "id": 81,
       "name": "Pain Simulacrum",
       "slot": "small",
-      "count": 2,
       "cost": {
         "materials": {
           "hide": 2
@@ -1611,15 +1370,12 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Treasure 59",
-      "description": "When you suffer 5 or fewer ^damage^ from an attack, one enemy within ^fh-range^ 2 also suffers the same amount of ^damage^."
+      }
     },
     {
       "id": 82,
       "name": "Mechanical Cube",
       "slot": "small",
-      "count": 2,
       "cost": {
         "materials": {
           "metal": 2
@@ -1630,2182 +1386,1640 @@
             "quantity": 1
           }
         ]
-      },
-      "source": "Both Treasure 62 and 69",
-      "description": "During your move ability, after you enter any one hex, give $wfh-immobilize$ to all adjacent enemies."
+      }
     },
     {
       "id": 83,
       "name": "Healing Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform ^fh-heal^ 3 ~!self!~"
+      }
     },
     {
       "id": 84,
       "name": "Stamina Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, ^recover^ one level 1 card from your discard pile."
+      }
     },
     {
       "id": 85,
       "name": "Power Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "axenut": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, add +1 ^attack^ to all your attacks."
+      }
     },
     {
       "id": 86,
       "name": "Element Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "flamefruit": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, @wfh-wild@"
+      }
     },
     {
       "id": 87,
       "name": "Cure Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "corpsecap": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, remove one negative condition you have.  This item can be used while you have $wfh-impair$ or $wfh-stun$."
+      }
     },
     {
       "id": 88,
       "name": "Fireshield Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "flamefruit": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn perform ^retaliate^ 1 ~!^fh-range^ 3!~ ^eot^"
+      }
     },
     {
       "id": 89,
       "name": "Stoneskin Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-ward$ ~!self!~"
+      }
     },
     {
       "id": 90,
       "name": "Muscle Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "flamefruit": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-strengthen$ ~!self!~"
+      }
     },
     {
       "id": 91,
       "name": "Holy Water",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1,
           "flamefruit": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-bless$ ~!self!~"
+      }
     },
     {
       "id": 92,
       "name": "Renewing Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "rockroot": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, ^recover^ up to two of your spent items."
+      }
     },
     {
       "id": 93,
       "name": "Glancing Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "When you reveal a ^modifier_no_damage^ attack modifier card from your attack modifier deck, treat it as a ^modifier_zero_circle^ instead."
+      }
     },
     {
       "id": 94,
       "name": "Frenzy Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "corpsecap": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform: ^attack^ 2"
+      }
     },
     {
       "id": 95,
       "name": "Poison Vial",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy\nSR-14",
-      "description": "During your turn, perform $wfh-poison$ ~!^fh-range^ 1!~"
+      }
     },
     {
       "id": 96,
       "name": "Flame Vial",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "flamefruit": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-wound$ ~!^fh-range^ 1!~"
+      }
     },
     {
       "id": 97,
       "name": "Explosive Vial",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, one enemy within ^fh-range^ 2 suffers ^damage^ 2."
+      }
     },
     {
       "id": 98,
       "name": "Unhealthy Mixture",
       "slot": "small",
-      "count": 2,
-      "cost": {},
-      "source": "Alchemy\nWO-10",
-      "description": "During your turn, perform $wfh-wound$, $wfh-poison$ ~!self!~"
+      "cost": {
+        "anyHerb": [
+          2
+        ]
+      }
     },
     {
       "id": 99,
       "name": "Major Healing Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "rockroot": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform ^fh-heal^ 6 ~!self!~"
+      }
     },
     {
       "id": 100,
       "name": "Major Stamina Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "axenut": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, ^recover^ one card from your discard pile."
+      }
     },
     {
       "id": 101,
       "name": "Major Power Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "axenut": 1,
           "corpsecap": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, add +2 ^attack^ to all your attacks."
+      }
     },
     {
       "id": 102,
       "name": "Major Element Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "axenut": 1,
           "flamefruit": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, @wfh-wild@ @wfh-wild@"
+      }
     },
     {
       "id": 103,
       "name": "Major Cure Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "corpsecap": 1,
           "flamefruit": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, remove all negative conditions you have.  This item can be used while you have $wfh-impair$ or $wfh-stun$."
+      }
     },
     {
       "id": 104,
       "name": "Swiftness Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "flamefruit": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your move ability, add +3 ^fh-move^ and ^fh-jump^."
+      }
     },
     {
       "id": 105,
       "name": "Major Fireshield Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "flamefruit": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform, ^retaliate^ 2 ~!^fh-range^ 3!~ ^eot^"
+      }
     },
     {
       "id": 106,
       "name": "Stonewall Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "axenut": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-ward$ ~!^target^ 2 adjacent allies and self!~"
+      }
     },
     {
       "id": 107,
       "name": "Vigor Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "corpsecap": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-strengthen$ ~!^target^ 2 adjacent allies and self!~"
+      }
     },
     {
       "id": 108,
       "name": "Holy Rain",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "corpsecap": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform $wfh-bless$ ~!^target^ 2 adjacent allies and self!~"
+      }
     },
     {
       "id": 109,
       "name": "Major Renewing Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "flamefruit": 1,
           "rockroot": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, ^recover^ up to one of your lost 2-herb potions."
+      }
     },
     {
       "id": 110,
       "name": "Precision Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1,
           "rockroot": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "When you reveal a ^modifier_no_damage^ attack modifier card from your attack modifier deck, treat it as a ^modifier_plus_2^ instead."
+      }
     },
     {
       "id": 111,
       "name": "Major Frenzy Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "corpsecap": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform: ^attack^ 4"
+      }
     },
     {
       "id": 112,
       "name": "Hammer Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "rockroot": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn suffer ^damage^ 10."
+      }
     },
     {
       "id": 113,
       "name": "Expertise Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1,
           "flamefruit": 1,
           "rockroot": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "At the start of your turn, discard one of your played cards to perform both the top and bottom actions of your other played card. At most one action can trigger a ^consumed^ icon."
+      }
     },
     {
       "id": 114,
       "name": "Foresight Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "corpsecap": 1,
           "flamefruit": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, reveal the top card of one monster ability deck. You may place the card on the bottom of the deck."
+      }
     },
     {
       "id": 115,
       "name": "Infusion Potion",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "corpsecap": 1,
           "flamefruit": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, ignore one elemental consumption symbol on an action you played and gain its effect."
+      }
     },
     {
       "id": 116,
       "name": "Plague Flask",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "corpsecap": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn perform, $wfh-poison$ ~!^fh-range^ 1!~ *cone_1_1*"
+      }
     },
     {
       "id": 117,
       "name": "Inferno Flask",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "axenut": 1,
           "flamefruit": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn perform, $wfh-wound$ ~!^fh-range^ 1!~ *cone_1_1*"
+      }
     },
     {
       "id": 118,
       "name": "Fulminant Flask",
       "slot": "small",
-      "count": 2,
       "cost": {
         "herbs": {
           "arrowvine": 1,
           "flamefruit": 1,
           "snowthistle": 1
         }
-      },
-      "source": "Alchemy",
-      "description": "During your turn, one enemy within ^fh-range^ 2 suffers ^damage^ 4."
+      }
     },
     {
       "id": 119,
       "name": "Deadly Mixture",
       "slot": "small",
-      "count": 2,
       "cost": {
         "anyHerb": [
           1,
           2
         ]
-      },
-      "source": "Alchemy",
-      "description": "During your turn, perform: $wfh-wound$, $wfh-poison$, $wfh-immobilize$, $wfh-disarm$ ~!self!~"
+      }
     },
     {
       "id": 120,
       "name": "Amulet of Life",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "During your turn, perform ^fh-heal^ 1 ~!self!~"
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 121,
       "name": "Circlet of Elements",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 25
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "During your turn, perform"
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 122,
       "name": "Warden's Robes",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 30
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "When one of your summons suffers ^damage^ from an attack, that summons gains ^fh-shield^ 2 for the attack."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 123,
       "name": "Leather Armor",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 124,
       "name": "Winged Shoes",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "During your turn, add ^fh-jump^ to all your move abilities."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 125,
       "name": "Boots of Speed",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 30
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 10."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 126,
       "name": "Weighted Net",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 20
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "During your ranged attack ability, add $wfh-immobilize$ to one attack."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 127,
       "name": "Poison Dagger",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "During your melee attack ability, add $wfh-poison$ to one attack."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 128,
       "name": "Heater Shield",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "gold": 15
       },
-      "requiredBuilding": "tradingPost",
-      "source": "Initially Available",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 1 for the attack."
+      "requiredBuilding": "tradingPost"
     },
     {
       "id": 129,
       "name": "Eagle-Eye Goggles",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "During your attack ability, gain advantage on all attacks."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 130,
       "name": "Iron Helmet",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 20
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "When you are attacked, treat any ^modifier_2x_circle^ attack modifier card the enemy draws as a ^modifier_zero_circle^ instead."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 131,
       "name": "Chainmail",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 25
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "On the next three sources of ^damage^ from attacks targeting you, you gain ^fh-shield^ 1 for the attacks."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 132,
       "name": "Cloak of Pockets",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "At the start of the scenario, bring one additional #small# items."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 133,
       "name": "Nimble Legguards",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 20
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "When an adjacent ally would be targeted by an attack, you are targeted instead, regardless of range and line-of-sight."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 134,
       "name": "Comfortable Shoes",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "When you use the basic bottom action of an ability card, perform ^fh-move^ 3 instead of ^fh-move^ 2."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 135,
       "name": "Armorbane Bow",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "During your attack, add $wfh-pierce$ 3 to all your ranged attacks."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 136,
       "name": "Battle Axe",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 20
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "During your single-target melee attack ability, change the targeting of the ability to: *cone_0_1*"
+      "requiredBuildingLevel": 2
     },
     {
       "id": 137,
       "name": "Tower Shield",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "gold": 35
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 2,
-      "source": "Trading Post 2",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 2 for the attack."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 138,
       "name": "Heavy Basinet",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "When an enemy would give you $wfh-disarm$, $wfh-stun$, or $wfh-muddle$, prevent the condition."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 139,
       "name": "Horned Helm",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "After your move 4 or more hexes on your turn, add +1 ^attack^ to your next melee attack this turn."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 140,
       "name": "Mantle of Summoning",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 40
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "During your turn, grant one of your summons: ^fh-shield^ 2. ^eot^"
+      "requiredBuildingLevel": 3
     },
     {
       "id": 141,
       "name": "Studded Leather",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 20
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack and you gain ^fh-shield^ 1 for the attack."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 142,
       "name": "Boots of Quickness",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 20."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 143,
       "name": "Endurance Footwraps",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 40
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "After you move 4 or more hexes during your turn, after the move ability perform: ^fh-heal^ 1 ~!self!~."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 144,
       "name": "Staff of Eminence",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "During your turn, @wfh-wild-consume@ to add +1 ^attack^ to all your attacks."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 145,
       "name": "Versatile Dagger",
       "slot": "1h",
-      "count": 2,
       "cost": {
         "gold": 25
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "When you use the basic top action of an ability card, perform ^attack^ 3 instead of ^attack^ 2."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 146,
       "name": "Hooked Chain",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 35
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 3,
-      "source": "Trading Post 3",
-      "description": "During your attack, add $wfh-pull$ 2 to all your ranged attacks."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 147,
       "name": "Mask of Terror",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 60
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "During your melee attack, add $wfh-push$ 1."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 148,
       "name": "Circlet of Sanctity",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 45
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "After the next three attacks targeting an ally within ^fh-range^ 2, flip this card over."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 149,
       "name": "Platemail",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "On the next five sources of ^damage^ from attacks targeting you, you gain ^fh-shield^ 1 for the attacks."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 150,
       "name": "Robes of the Oak",
       "slot": "body",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "During your turn, perform: ^fh-heal^ 3 ~!^target^ 1 ally, ^fh-range^ 1!~ "
+      "requiredBuildingLevel": 4
     },
     {
       "id": 151,
       "name": "Serene Sandals",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 75
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "When you use the basic bottom action of an ability card, perform ^fh-move^ 4 instead of ^fh-move^ 2."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 152,
       "name": "Steel Sabatons",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 55
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "At the end of your turn, if you have moved 1 or fewer hexes during your turn, gain ^fh-shield^ 1 for the round."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 153,
       "name": "Long Spear",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 40
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "During your single-target melee attack ability, change the targeting of the ability to: *line_0_1_1*"
+      "requiredBuildingLevel": 4
     },
     {
       "id": 154,
       "name": "volatile Bomb",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "During your single-target ranged attack ability, change the targeting of the ability to: *cone_1_1*"
+      "requiredBuildingLevel": 4
     },
     {
       "id": 155,
       "name": "Wall Shield",
       "slot": "2h",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "tradingPost",
-      "requiredBuildingLevel": 4,
-      "source": "Trading Post 4",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 4 for the attack."
+      "requiredBuildingLevel": 4
     },
     {
       "id": 156,
       "name": "Moon Earring",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 20
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 1,
-      "source": "Jeweler 1",
-      "description": "When you short rest, ^recover^ up to three of your spent items."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 157,
       "name": "Steel Ring",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 20
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 1,
-      "source": "Jeweler 1",
-      "description": "When you suffer ^damage^ from an attack, gain ^fh-shield^ 4 for the attack."
+      "requiredBuildingLevel": 1
     },
     {
       "id": 158,
       "name": "Deep Earth Brooch",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 1,
-      "source": "Jeweler 1",
-      "description": "During your turn, perform"
+      "requiredBuildingLevel": 1
     },
     {
       "id": 159,
       "name": "Glorious Bracelet",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 1,
-      "source": "Jeweler 1",
-      "description": "After your attack ability during which one enemy suffered at least ^damage^ 6, perform: $wfh-bless$, $wfh-bless$ ~!self!~"
+      "requiredBuildingLevel": 1
     },
     {
       "id": 160,
       "name": "Sun Earring",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 35
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 2,
-      "source": "Jeweler 2",
-      "description": "When you short rest, ^recover^ up to three of your spent items, and perform ^fh-heal^ 2 ~!self!~."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 161,
       "name": "Strategists Ring",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 30
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 2,
-      "source": "Jeweler 2",
-      "description": "At the end of your turn, play one card from your hand and perform all persistent and mandatory abilities on either the top or bottom action of the card."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 162,
       "name": "Howling Ice Brooch",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 40
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 2,
-      "source": "Jeweler 2",
-      "description": "During your turn, perform"
+      "requiredBuildingLevel": 2
     },
     {
       "id": 163,
       "name": "Stunning Bracelet",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 35
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 2,
-      "source": "Jeweler 2",
-      "description": "During your turn, give $wfh-stun$ to half (rounded up) the enemies adjacent to you."
+      "requiredBuildingLevel": 2
     },
     {
       "id": 164,
       "name": "Star Earring",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 3,
-      "source": "Jeweler 3",
-      "description": "When you short rest, ^recover^ up to three of your spent items, choose which card to lose during the rest, and perform ^fh-heal^ 2 ~!self!~."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 165,
       "name": "Ring of Haste",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 40
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 3,
-      "source": "Jeweler 3",
-      "description": "At the end of you turn, play one card from your hand and perform the bottom action of the card."
+      "requiredBuildingLevel": 3
     },
     {
       "id": 166,
       "name": "Blazing Sun Brooch",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 50
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 3,
-      "source": "Jeweler 3",
-      "description": "During your turn, perform "
+      "requiredBuildingLevel": 3
     },
     {
       "id": 167,
       "name": "Attractive Bracelet",
       "slot": "small",
-      "count": 2,
       "cost": {
         "gold": 40
       },
       "requiredBuilding": "jeweler",
-      "requiredBuildingLevel": 3,
-      "source": "Jeweler 3\nWR-10",
-      "description": "At the start of the enemy's turn, before it determines its focus, perform: $wfh-pull$ 4 ~!^target^ the enemy, ^fh-range^ 5, $wfh-muddle$!~"
+      "requiredBuildingLevel": 3
     },
     {
       "id": 168,
       "name": "Circlet of Eyes",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Loot Deck Random",
-      "description": "During your ranged attack ability, add +1 ^target^."
+      }
     },
     {
       "id": 169,
       "name": "Fateful Charm",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, reveal the top card of your attack modifier deck.  You may place the card on the bottom of the deck."
+      }
     },
     {
       "id": 170,
       "name": "Eye of Truth",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, reveal the top card of each monster ability deck."
+      }
     },
     {
       "id": 171,
       "name": "Rejuvenating Charm",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Loot Deck Random",
-      "description": "Whenever you lose a card to negate ^damage^, ^recover^ up to one card from your discard pile and gain $wfh-regenerate$."
+      }
     },
     {
       "id": 172,
       "name": "Cap of Premonition",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, look at the top four cards of your attack modifier deck and put them back in any order."
+      }
     },
     {
       "id": 173,
       "name": "Multi Colored Cloak",
       "slot": "body",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Loot Deck Random",
-      "description": "When attacked: @wfh-wild@."
+      }
     },
     {
       "id": 174,
       "name": "Magnetic Cape",
       "slot": "body",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, perform: ^teleport^ 20 This teleport must end in a hex adjacent to one of your allies."
+      }
     },
     {
       "id": 175,
       "name": "Mirrored Armor",
       "slot": "body",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "Loot Deck Random",
-      "description": "When you suffer ^damage^ from an attack, the attacker suffers and equal amount of ^damage^."
+      }
     },
     {
       "id": 176,
       "name": "Blinking Cape",
       "slot": "body",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, perform: ^teleport^ 4 This teleport must end in a hex adjacent to one of your enemies."
+      }
     },
     {
       "id": 177,
       "name": "Boots of Transference",
       "slot": "legs",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Loot Deck Random",
-      "description": "When you spring a trap by entering its hex, you may apply its effects to a figure within ^fh-range^ 3 instead of yourself."
+      }
     },
     {
       "id": 178,
       "name": "Tranquil Shoes",
       "slot": "legs",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Loot Deck Random",
-      "description": "At the start of your turn in which your initiative is 60 or higher and you are not performing a long rest, perform ^fh-heal^ 1 ~!self!~."
+      }
     },
     {
       "id": 179,
       "name": "Burst Boots",
       "slot": "legs",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Loot Deck Random",
-      "description": "During your move ability, add +4 ^fh-move^.  After the move ability gain $wfh-immobilize$."
+      }
     },
     {
       "id": 180,
       "name": "Boots of Greed",
       "slot": "legs",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "Loot Deck Random",
-      "description": "When you loot two or more tokens at once, perform: $wfh-bless$ ~!self!~."
+      }
     },
     {
       "id": 181,
       "name": "Translocation Rod",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, designate two allies or any two normal or elite monsters. Each designated figure simultaneously ^teleport^ to the hex occupied by the other designated figure."
+      }
     },
     {
       "id": 182,
       "name": "Wing Clippers",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Loot Deck Random",
-      "description": "After your melee attack, place a character token on the target. The target loses ^fh-flying^. ^ongoing^"
+      }
     },
     {
       "id": 183,
       "name": "Decanter of Mists",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "Loot Deck Random\nTreasure 16",
-      "description": "During your turn, all figures gain disadvantage on and add 1 ^fh-range^ to all ranged attacks this round. ^eot^"
+      }
     },
     {
       "id": 184,
       "name": "Flashing Axe",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Loot Deck Random",
-      "description": "During your multi-target melee attack ability, add +1 ^target^."
+      }
     },
     {
       "id": 185,
       "name": "Mirrored Knife",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Loot Deck Random",
-      "description": "During your melee attack ability, add all negative conditions you have except $wfh-brittle$, $wfh-bane$ and $wfh-stun$ to one attack."
+      }
     },
     {
       "id": 186,
       "name": "Wild Growth Seeds",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, create one 1-hex obstacle in an adjacent empty hex."
+      }
     },
     {
       "id": 187,
       "name": "Dangerous Gear",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, create one ^damage^ 3 trap in an adjacent empty hex."
+      }
     },
     {
       "id": 188,
       "name": "Freezing Crystal",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, create one 1-hex hazardous terrain, icy terrain, or water tile in an adjacent featureless hex."
+      }
     },
     {
       "id": 189,
       "name": "Ring of the Night",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Loot Deck Random",
-      "description": "During your, perform"
+      }
     },
     {
       "id": 190,
       "name": "White Card",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Loot Deck Random",
-      "description": "During your turn, place a character token on one normal or elite enemy within ^fh-range^ 3. This enemy adds -1 ^attack^ to all its attacks. ^ongoing^."
+      }
     },
     {
       "id": 191,
       "name": "Corrupted Scroll",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Loot Deck Random",
-      "description": "During your, perform ^fh-heal^ 5 ~!^fh-range^ 5!~ $wfh-poison$ ~@!~!^target^ the target of the heal ability@~"
+      }
     },
     {
       "id": 192,
       "name": "Enticing Bell",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Loot Deck Random",
-      "description": "At the end of your turn, designate one enemy within ^fh-range^ 3. You are its primary focus and it does not avoid negative hexes when determining movement this round. ^eot^"
+      }
     },
     {
       "id": 193,
       "name": "Mind Thieving Helmet",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 121",
-      "description": "During your turn, control one enemy within ^fh-range^ 3: ^attack^ 3"
+      }
     },
     {
       "id": 194,
       "name": "Temporal Amulet",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 125",
-      "description": "During ordering of initiative after all ability card have been revealed, increase or decrease a monster set's initiative by 30."
+      }
     },
     {
       "id": 195,
       "name": "Tri-Corner Hat",
       "slot": "head",
-      "count": 2,
       "cost": {
         "gold": 30
-      },
-      "source": "Treasure 83\nScenario 127",
-      "description": "During your turn add +1 ^fh-range^ and $wfh-pierce$ 1 to one of your ranged attacks."
+      }
     },
     {
       "id": 196,
       "name": "Choker of Sacrifice",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "SR-26",
-      "description": "During your turn, discard one loot card except Random Item to perform: ^fh-heal^ 5 ~!^fh-range^ 2, $wfh-ward$!~"
+      }
     },
     {
       "id": 197,
       "name": "Aesther Diadem",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "WO-77",
-      "description": "After ordering of initiative, exchange a card in your hand for one which you have played. Your initiative is unaffected."
+      }
     },
     {
       "id": 198,
       "name": "Hunter's Necklace",
       "slot": "head",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "WR-36",
-      "description": "During your turn, perform $wfh-pull$ 3 ~!^fh-range^ 4!~"
+      }
     },
     {
       "id": 199,
       "name": "Opulent Shoes",
       "slot": "legs",
-      "count": 2,
       "cost": {
         "gold": 30
-      },
-      "source": "Treasure 6\nTreasure 78",
-      "description": "At the start of the scenario, consider yourself to be your summons in initiative order when determining monster focus for the remainder of the scenario."
+      }
     },
     {
       "id": 200,
       "name": "Eventide Scepter",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Treasure 4",
-      "description": "During your heal ability targeting an ally, @wfh-light-consume@ to add $wfh-regenerate$ to one heal and flip this card over."
+      }
     },
     {
       "id": 201,
       "name": "Wave Blade",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Scenario 76\nScenario 77",
-      "description": "During your attack ability performed while occupying or adjacent to a hex with a water tile, add $wfh-push$ 1 and $wfh-immobilize$ to one attack."
+      }
     },
     {
       "id": 202,
       "name": "Giant Piranha Pig Spine",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Scenario 83",
-      "description": "During your melee attack ability, add $wfh-pierce$ 2 and $wfh-wound$ to one attack."
+      }
     },
     {
       "id": 203,
       "name": "Scepter of Control",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Scenario 119",
-      "description": "After your ability control one target: ^fh-move^ 2"
+      }
     },
     {
       "id": 204,
       "name": "Severed Claw",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "Treasure 5",
-      "description": "During your turn, one adjacent normal or elite enemy suffers ^damage^ to their ^fh-shield^ value."
+      }
     },
     {
       "id": 205,
       "name": "Harpoon",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Treasure 55",
-      "description": "During your, perform ^attack^ 2 ~!^fh-range^, $wfh-pull$ 2!~"
+      }
     },
     {
       "id": 206,
       "name": "Giant Sword",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Treasure 42\nSO-30",
-      "description": "During your melee attack ability, if you have not move this round, add +2 ^attack^ to one attack, and you may perform no move abilities this turn."
+      }
     },
     {
       "id": 207,
       "name": "Fishhook",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 25
-      },
-      "source": "Treasure 13",
-      "description": "After your attack, if the target's current hit point is 3 or less, give the target $wfh-bane$"
+      }
     },
     {
       "id": 208,
       "name": "Titan Nail",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 35
-      },
-      "source": "Treasure 52",
-      "description": "During your attack ability add $wfh-pierce$ 3 to one attack targeting an enemy whose current hit point value is 4 or less."
+      }
     },
     {
       "id": 209,
       "name": "Sword of Mastery",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 60
-      },
-      "source": "SR-35",
-      "description": "During your melee attack ability, give advantage on one attack.  For each mastery you have completed, also add one of the following to the attack: +1 ^attack^, $wfh-wound$, or $wfh-poison$. "
+      }
     },
     {
       "id": 210,
       "name": "Tanjo",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "SO-39",
-      "description": "During your turn, add +3 ^attack^ to all your attacks performed by Lurkers targeting you this round. ^eot^"
+      }
     },
     {
       "id": 211,
       "name": "Boom Barrel",
       "slot": "2h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Boat Event 11",
-      "description": "During your turn, designate one adjacent hex.  At the end of your turn, all figures within ^fh-range^ 2 of the designated hex suffer ^damage^ 1."
+      }
     },
     {
       "id": 212,
       "name": "Elemental Stone",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 66",
-      "description": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. ^eot^"
+      }
     },
     {
       "id": 213,
       "name": "Key of Seasons",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 70
-      },
-      "source": "Scenario 106",
-      "description": "During your attack ability @wfh-ice-consume@ to add $wfh-immobilize$ to one attack, then flip this card over at the end of your turn."
+      }
     },
     {
       "id": 214,
       "name": "Cup of Ventillion",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 107",
-      "description": "During your heal ability add one positive condition you have to one heal."
+      }
     },
     {
       "id": 215,
       "name": "Befuddling Mug",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 128",
-      "description": "During your, add +1 ^attack^ and $wfh-muddle$ to all your attacks. At the end of your turn, perform: $wfh-muddle$ ~!self!~"
+      }
     },
     {
       "id": 216,
       "name": "Tome of Elements",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "SR-48 or WR-46 Event Chain",
-      "description": "During your turn, @wfh-fire@ @wfh-ice@ @wfh-air@ @wfh-earth@ @wfh-light@ @wfh-dark@ Elements do not move from strong to waning at the end of this round. ^eot^"
+      }
     },
     {
       "id": 217,
       "name": "Tome of Time",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "SR-49 or WR-47 Event Chain",
-      "description": "During ordering of initiative after all ability card have been revealed, shuffle all monster ability decks and draw a new card for each active monster set."
+      }
     },
     {
       "id": 218,
       "name": "Tome of Life",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "SR-47 or WR-45 Event Chain",
-      "description": "During your turn, remove all conditions from all figures then grant all figures: ^fh-heal^ 2 ~!self!~"
+      }
     },
     {
       "id": 219,
       "name": "Tome of Conflict",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Scenario 134\n",
-      "description": "During your turn all figures gain $wfh-strengthen$. Until any monster is killed, the first attack modifier card drawn for every attack is treated as rolling. ^ongoing^"
+      }
     },
     {
       "id": 220,
       "name": "Belaras Quill",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Scenario 135",
-      "description": "During your turn, ^recover^ up to one Tome item."
+      }
     },
     {
       "id": 221,
       "name": "Ice Shiv",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Treasure 84",
-      "description": "During your melee attack ability, @wfh-ice-consume@ to add $wfh-pierce$ 3 to one attack."
+      }
     },
     {
       "id": 222,
       "name": "Black Box",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Treasure 36",
-      "description": "During yor turn, discard two cards from your hand to perform: ^fh-heal^ 6 ~!self!~"
+      }
     },
     {
       "id": 223,
       "name": "Lightning Rod",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Treasure 26",
-      "description": "After ordering of initiative, all monsters consider you to be first in initiative order when determining focus this round. ^eot^"
+      }
     },
     {
       "id": 224,
       "name": "Armor of Empathy",
       "slot": "body",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Scenario 60",
-      "description": "After the next three attacks targeting you, flip this card over."
+      }
     },
     {
       "id": 225,
       "name": "Algox Carving",
       "slot": "body",
-      "count": 1,
       "cost": {
         "gold": 60
-      },
-      "source": "Treasure 41",
-      "description": "During your melee attack ability, @wfh-earth-consume@ to add +1 ^attack^ to one attack and flip this card over."
+      }
     },
     {
       "id": 226,
       "name": "Unfettered Arm",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Treasure 81\nWR-22",
-      "description": "During your attack ability, double the numerical value of the next attack modifier card you draw. ^modifier_2x_circle^ and ^modifier_no_damage^ modifier cards are unaffected."
+      }
     },
     {
       "id": 227,
       "name": "Data Drive",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Treasure 7",
-      "description": "When you short rest, place half (rounded down) of your discard pile on this item, lose of the remaining cards randomly as normal, then draw the cards on this item."
+      }
     },
     {
       "id": 228,
       "name": "Extendable Pole",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "Treasure 35",
-      "description": "During your turn, open one unlocked door while within ^fh-range^ 2."
+      }
     },
     {
       "id": 229,
       "name": "Exquisite Map",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "SO-42",
-      "description": "During your turn grant one ally within ^fh-range^ 3: ^fh-move^ 3"
+      }
     },
     {
       "id": 230,
       "name": "Examination Glass",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "SR-26",
-      "description": "After you draw one loot card, draw one additional card, keep one, and place the other on either the top or bottom of the loot deck."
+      }
     },
     {
       "id": 231,
       "name": "Skinning Knife",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 15
-      },
-      "source": "WR-16",
-      "description": "When you gain a loot token, gain 3 `hide` instead of drawing a loot card."
+      }
     },
     {
       "id": 232,
       "name": "Orchid Wand",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 20
-      },
-      "source": "WR-12",
-      "description": "During your turn lose 1 morale to perform: $wfh-bless$ ~!^target^ all allies and self!~"
+      }
     },
     {
       "id": 233,
       "name": "Dead Raven",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 13",
-      "description": "During you ally's ranged attack ability, add $wfh-muddle$ and $wfh-curse$ to one attack."
+      }
     },
     {
       "id": 234,
       "name": "ooze vial",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 84",
-      "description": "During your turn, create one $wfh-poison$, $wfh-immobilize$ trap in an empty hex within ^fh-range^ 2."
+      }
     },
     {
       "id": 235,
       "name": "Small Rat",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 10
-      },
-      "source": "Scenario 93",
-      "description": "During your turn, loot one loot token within ^fh-range^ 2."
+      }
     },
     {
       "id": 236,
       "name": "Cracked Mirror",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 111",
-      "description": "During your turn, lose one card from your hand to ^recover^ one card from your lost pile of equal or lower level."
+      }
     },
     {
       "id": 237,
       "name": "Mesmerizing Seashell",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 45
-      },
-      "source": "Scenario 131",
-      "description": "During your turn, choose one of six directions. You and all figures within ^fh-range^ 2 are forced to simultaneously move 2 hexes in the chosen direction."
+      }
     },
     {
       "id": 238,
       "name": "Cracked Idol",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "Scenario 133",
-      "description": "When you would become exhausted from suffering ^damage^, set your hit point value to 1 instead."
+      }
     },
     {
       "id": 239,
       "name": "Eye of the Storm",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "Treasure 53",
-      "description": "During your turn, all allies and enemies within ^fh-range^ 2 suffer ^damage^ 1."
+      }
     },
     {
       "id": 240,
       "name": "Demons Gem",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 15
-      },
-      "source": "SO-53 event chain",
-      "description": "When you fail a scenario, still earn all ^checkmark^ from your battle goal if it was completed."
+      }
     },
     {
       "id": 241,
       "name": "Shimmering Powder",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 40
-      },
-      "source": "SR-26",
-      "description": "After you draw one loot card, draw one additional loot card."
+      }
     },
     {
       "id": 242,
       "name": "Lucky Dice",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 30
-      },
-      "source": "SO-4",
-      "description": "During your attack ability, treat the next three attack modifier cards you draw as rolling"
+      }
     },
     {
       "id": 243,
       "name": "Cursed Rock",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 10
-      },
-      "source": "WR-3",
-      "description": "This item cannot be sold and must be brought into and used every scenario. At the start of the scenario perform: $wfh-curse$, $wfh-bless$ ~!self!~"
+      }
     },
     {
       "id": 244,
       "name": "Ember Energy Source",
       "slot": "small",
-      "count": 1,
       "cost": {
         "gold": 50
-      },
-      "source": "Scenario 33",
-      "description": "During your turn, increase the printed ^attack^, ^fh-move^, ^target^, or ^fh-range^ numerical value on one of your abilities by 1."
+      }
     },
     {
       "id": 245,
       "name": "Ancient Coin",
-      "count": 1,
-      "cost": {},
-      "source": "Scenario 136\nBuilding 74\nLoot Cards"
+      "cost": {}
     },
     {
       "id": 246,
       "name": "Key Card",
-      "count": 1,
-      "cost": {},
-      "source": "Scenario 58\nScenario 59"
+      "cost": {}
     },
     {
       "id": 247,
       "name": "Trainers Net",
       "slot": "1h",
-      "count": 1,
       "cost": {
         "gold": 10
-      },
-      "source": "Stables",
-      "description": "During your turn, capture an adjacent enemy whose hit point value is 1 or 2."
+      }
     },
     {
       "id": 248,
       "name": "Wanderer's Club",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #01 — {FH1}",
-      "description": "During your attack ability, move one character token on one of your persistent abilities backward one slot and add +X ^attack^ to one attack, where X is the number of active persistent abilities."
+      "cost": {}
     },
     {
       "id": 249,
       "name": "Recalibration Trigger",
       "slot": "small",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #02 — {FH2}",
-      "description": "During our turn, perform one of the two following abilities: Lose one card from your hand to gain 3 ^fh-hourglass^. ~@-2 ^fh-hourglass^ : ^recover^ up to two of your discarded cards@~"
+      "cost": {}
     },
     {
       "id": 250,
       "name": "Spear of Justice",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #03 — {FH3}",
-      "description": "During your turn perform: ^attack^ 2 ~!^fh-range^ 3!~. All your banners are treated as additionally occupying the hex of the attack target of their bonuses and that hex is treated as occupied by an ally this round. ^eot^"
+      "cost": {}
     },
     {
       "id": 251,
       "name": "Soul Urn",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #04 — {FH4}",
-      "description": "Place one ^fh-shadow^ in an adjacent hex. @wfh-dark@"
+      "cost": {}
     },
     {
       "id": 252,
       "name": "Black Earth Codex",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #05 — {FH5}",
-      "description": "On the next three deaths of any of your summons,"
+      "cost": {}
     },
     {
       "id": 253,
       "name": "Mask of Duality",
       "slot": "head",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #06 — {FH6}",
-      "description": "During your ranged attack ability while in ^fh-geminate-right^, gain advantage for one attack, then flip this card over."
+      "cost": {}
     },
     {
       "id": 254,
       "name": "Ancestral Blade",
       "slot": "2h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #07 — {FH7}",
-      "description": "During your turn, activate all your ^fh-astral^ as if you just performed a ^fh-astral^ action."
+      "cost": {}
     },
     {
       "id": 255,
       "name": "Mountain's Heart",
       "slot": "small",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #08 — {FH8}",
-      "description": "During your turn, you may create either one 1-hex obstacle or hazardous terrain tile in an empty tile within ^fh-range^ 2."
+      "cost": {}
     },
     {
       "id": 256,
       "name": "Sonorous Shard",
       "slot": "small",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #09 — {FH9}",
-      "description": "Gain 3 ^fh-shards^"
+      "cost": {}
     },
     {
       "id": 257,
       "name": "Sly Camouflage",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #10 — {FH10}",
-      "description": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remove the token when you ^recover^ this item. ^ongoing^"
+      "cost": {}
     },
     {
       "id": 258,
       "name": "Skull of Agony",
       "slot": "small",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #11 — {FH11}",
-      "description": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform: ^fh-heal^ 7 ~!self, $wfh-curse$!~ This heal is not affect by and cannot remove negative conditions."
+      "cost": {}
     },
     {
       "id": 259,
       "name": "Storm Carving",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #12 — {FH12}",
-      "description": "During an attack ability you grant an ally, add $wfh-push$ 2 to one of their attacks, then flip this card over."
+      "cost": {}
     },
     {
       "id": 260,
       "name": "Freezing Orb",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #13 — {FH13}",
-      "description": "During your attack ability, add $wfh-brittle$ to one attack and create one 1-hex icy terrain tile in the featureless hex occupied by the target."
+      "cost": {}
     },
     {
       "id": 261,
       "name": "Energized Module",
       "slot": "small",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #14 — {FH14}",
-      "description": "Remove all damage and negative conditions from one of your summons, then ^fh-prism^ to that summon."
+      "cost": {}
     },
     {
       "id": 262,
       "name": "Exhaust Boots",
       "slot": "legs",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #15 — {FH15}",
-      "description": "During your move ability, when you have ^fh-meter-yellow^ or ^fh-meter-red^, add +1 ^fh-move^, then flip this card over at the end of your turn."
+      "cost": {}
     },
     {
       "id": 263,
       "name": "Warlords Skull",
       "slot": "1h",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #16 — {FH16}",
-      "description": "Whenever you gain $wfh-invisible$ or perform a teleport ability while you have $wfh-invisible$, after the ability perform: $wfh-muddle$ ~!^fh-range^ 1!~"
+      "cost": {}
     },
     {
       "id": 264,
       "name": "Spiraled Medallion",
       "slot": "head",
-      "count": 1,
-      "cost": {},
-      "source": "Reward from Solo Scenario #17 — {FH17}",
-      "description": "When you rest, you may keep up to three ^fh-anemone^ cards in your active area."
+      "cost": {}
     }
   ]
 }

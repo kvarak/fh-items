@@ -162,13 +162,8 @@ th, td {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-tr.status-locked, tr.status-unavailable {
+tr.status-unavailable {
   color: #888;
-}
-
-tr.status-locked td:last-child {
-  color: #a33;
-  font-weight: 600;
 }
 
 tr.status-unavailable td:last-child {

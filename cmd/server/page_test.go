@@ -7,18 +7,18 @@ import (
 	"testing"
 
 	"fh-items/internal/catalog"
-	"fh-items/internal/state"
 )
 
 func testCatalog() catalog.Catalog {
 	return catalog.Catalog{Items: []catalog.Item{
-		{ID: 20, Name: "Spyglass", Count: 2, RequiredBuilding: catalog.BuildingCraftsman, RequiredBuildingLevel: 2},
-		{ID: 30, Name: "Random Blueprint Item", Count: 2},
+		{ID: 1, Name: "Spyglass", RequiredBuilding: catalog.BuildingCraftsman, RequiredBuildingLevel: 2},
+		{ID: 2, Name: "Amulet of Life", RequiredBuilding: catalog.BuildingTradingPost},
+		{ID: 3, Name: "Unhealthy Mixture"},
+		{ID: 4, Name: "Cured Leather Armor", Cost: catalog.Cost{RequiredItems: []catalog.ItemRequirement{{ItemID: 3, Quantity: 1}}}},
 	}}
 }
 
-func requestWithUnlocksCookie(t *testing.T, value string) *http.Request {
-	t.Helper()
+func requestWithUnlocksCookie(value string) *http.Request {
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
 	if value != "" {
 		req.AddCookie(&http.Cookie{Name: unlocksCookieName, Value: url.PathEscape(value)})
@@ -26,62 +26,73 @@ func requestWithUnlocksCookie(t *testing.T, value string) *http.Request {
 	return req
 }
 
-func TestStateFromRequest_NoCookieReturnsDefault(t *testing.T) {
-	cat := testCatalog()
-	st := state.New(cat)
-	req := requestWithUnlocksCookie(t, "")
-
-	got := stateFromRequest(req, cat, st)
-
-	if got.Buildings.Craftsman != 0 {
-		t.Errorf("Buildings.Craftsman = %d, want 0", got.Buildings.Craftsman)
+func TestUnlocksFromRequest(t *testing.T) {
+	cases := []struct {
+		name      string
+		cookie    string
+		craftsman int
+		ids       int
+	}{
+		{"no cookie", "", 0, 0},
+		{"valid cookie", `{"buildings":{"craftsman":2,"jeweler":0,"tradingPost":0},"unlockedItemIds":[3,4]}`, 2, 2},
+		{"malformed cookie", "not json", 0, 0},
 	}
-	if got.Items[20].Unlocked {
-		t.Error("item 20 should still be locked with no cookie")
-	}
-}
-
-func TestStateFromRequest_AppliesBuildingsAndUnlockedItems(t *testing.T) {
-	cat := testCatalog()
-	st := state.New(cat)
-	req := requestWithUnlocksCookie(t, `{"buildings":{"craftsman":2,"jeweler":0,"tradingPost":0},"unlockedItemIds":[30]}`)
-
-	got := stateFromRequest(req, cat, st)
-
-	if got.Buildings.Craftsman != 2 {
-		t.Errorf("Buildings.Craftsman = %d, want 2", got.Buildings.Craftsman)
-	}
-	if !got.Items[20].Unlocked {
-		t.Error("item 20 (Craftsman 2) should be unlocked")
-	}
-	if !got.Items[30].Unlocked {
-		t.Error("item 30 should be unlocked")
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			u := unlocksFromRequest(requestWithUnlocksCookie(tc.cookie))
+			if u.Buildings.Craftsman != tc.craftsman || len(u.DiscoveredItemIDs) != tc.ids {
+				t.Errorf("got craftsman %d, %d ids; want %d, %d", u.Buildings.Craftsman, len(u.DiscoveredItemIDs), tc.craftsman, tc.ids)
+			}
+		})
 	}
 }
 
-func TestStateFromRequest_MalformedCookieFallsBackToDefault(t *testing.T) {
+func TestUnlockedSet(t *testing.T) {
 	cat := testCatalog()
-	st := state.New(cat)
-	req := requestWithUnlocksCookie(t, "not json")
 
-	got := stateFromRequest(req, cat, st)
+	fresh := unlocks{}.unlockedSet(cat)
+	if fresh[1] || !fresh[2] || fresh[3] {
+		t.Errorf("fresh campaign: got %v, want only item 2 (no building level needed) unlocked", fresh)
+	}
 
-	if got.Buildings.Craftsman != 0 {
-		t.Errorf("Buildings.Craftsman = %d, want 0 (malformed cookie should be ignored)", got.Buildings.Craftsman)
+	u := unlocks{Buildings: buildingLevels{Craftsman: 2}, DiscoveredItemIDs: []int{1, 3}}
+	got := u.unlockedSet(cat)
+	if !got[1] || !got[3] || got[4] {
+		t.Errorf("got %v, want items 1 (by building) and 3 (discovered) unlocked, 4 locked", got)
+	}
+
+	u = unlocks{DiscoveredItemIDs: []int{1}}
+	if u.unlockedSet(cat)[1] {
+		t.Error("building-gated item 1 must not unlock by being marked discovered")
 	}
 }
 
-func TestStateFromRequest_DoesNotMutateInputState(t *testing.T) {
+func TestIsCraftable_RequiresUnlockedPrerequisites(t *testing.T) {
 	cat := testCatalog()
-	st := state.New(cat)
-	req := requestWithUnlocksCookie(t, `{"buildings":{"craftsman":2,"jeweler":0,"tradingPost":0},"unlockedItemIds":[30]}`)
+	byID := map[int]catalog.Item{3: cat.Items[2], 4: cat.Items[3]}
 
-	stateFromRequest(req, cat, st)
-
-	if st.Buildings.Craftsman != 0 {
-		t.Errorf("input state was mutated: Buildings.Craftsman = %d, want 0", st.Buildings.Craftsman)
+	if isCraftable(4, byID, map[int]bool{4: true}, map[int]bool{}) {
+		t.Error("item 4 should not be craftable while its prerequisite is locked")
 	}
-	if st.Items[30].Unlocked {
-		t.Error("input state's item map was mutated in place")
+	if !isCraftable(4, byID, map[int]bool{3: true, 4: true}, map[int]bool{}) {
+		t.Error("item 4 should be craftable once its prerequisite is unlocked")
+	}
+}
+
+func TestCostSummary_NamesOnlyUnlockedPrerequisites(t *testing.T) {
+	byID := map[int]catalog.Item{1: {ID: 1, Name: "Unhealthy Mixture"}}
+	cost := catalog.Cost{
+		Materials:     map[catalog.ResourceType]int{catalog.ResourceHide: 1},
+		RequiredItems: []catalog.ItemRequirement{{ItemID: 1, Quantity: 2}},
+	}
+
+	if got, want := costSummary(cost, byID, map[int]bool{}), "1 hide + 2x item 1"; got != want {
+		t.Errorf("locked prerequisite: got %q, want %q", got, want)
+	}
+	if got, want := costSummary(cost, byID, map[int]bool{1: true}), "1 hide + 2x Unhealthy Mixture"; got != want {
+		t.Errorf("unlocked prerequisite: got %q, want %q", got, want)
+	}
+	if got := costSummary(catalog.Cost{}, byID, nil); got != "-" {
+		t.Errorf("empty cost: got %q, want %q", got, "-")
 	}
 }

@@ -16,10 +16,7 @@ type sourceItem struct {
 	ID                     int                        `json:"id"`
 	Name                   string                     `json:"name"`
 	Slot                   string                     `json:"slot"`
-	Count                  int                        `json:"count"`
 	Resources              map[string]json.RawMessage `json:"resources"`
-	Source                 string                     `json:"source"`
-	Desc                   string                     `json:"desc"`
 	Cost                   int                        `json:"cost"`
 	UnlockCrafstmanLevel   *int                       `json:"unlockCrafstmanLevel"`
 	UnlockJewelerLevel     *int                       `json:"unlockJewelerLevel"`
@@ -70,13 +67,10 @@ func convertItem(src sourceItem) (Item, error) {
 	}
 
 	item := Item{
-		ID:          src.ID,
-		Name:        src.Name,
-		Slot:        src.Slot,
-		Count:       src.Count,
-		Cost:        cost,
-		Source:      src.Source,
-		Description: src.Desc,
+		ID:   src.ID,
+		Name: src.Name,
+		Slot: src.Slot,
+		Cost: cost,
 	}
 
 	switch {

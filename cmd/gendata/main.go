@@ -7,13 +7,12 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
 
 	"fh-items/internal/catalog"
-
-	"encoding/json"
 )
 
 func main() {

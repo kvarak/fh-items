@@ -5,7 +5,6 @@
 FROM golang:1.23-alpine
 
 WORKDIR /src
-COPY go.mod ./
 COPY . .
 RUN go build -o /out/server ./cmd/server
 

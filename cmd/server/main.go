@@ -1,8 +1,6 @@
-// Command server runs the fh-items web server: it loads the embedded
-// catalog, builds a fresh default runtime state, and serves the static
-// frontend assets plus the JSON API (GET /api/state, POST /api/check).
-// Nothing is persisted server-side - building levels, discovered items,
-// and resources all live client-side (cookies), read per-request.
+// Command server serves the fh-items crafting planner. Nothing is persisted
+// server-side: building levels and discovered items come from a cookie on
+// each request.
 package main
 
 import (
@@ -13,9 +11,7 @@ import (
 	"log"
 	"net/http"
 
-	"fh-items/internal/api"
 	"fh-items/internal/catalog"
-	"fh-items/internal/state"
 	"fh-items/web"
 )
 
@@ -27,12 +23,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("loading catalog: %v", err)
 	}
-
-	s := state.New(cat)
-	if err := s.Validate(); err != nil {
-		log.Fatalf("default state failed validation: %v", err)
-	}
-
 	log.Printf("loaded catalog: %d items (schema v%d, source checksum %s)",
 		len(cat.Items), cat.SchemaVersion, cat.SourceChecksum)
 
@@ -41,14 +31,9 @@ func main() {
 		log.Fatalf("parsing index template: %v", err)
 	}
 
-	apiServer := api.NewServer(cat, s)
-
 	mux := http.NewServeMux()
-	apiServer.RegisterRoutes(mux)
-
 	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
-		st := stateFromRequest(r, apiServer.Catalog, apiServer.State())
-		data := buildPageData(apiServer.Catalog, st)
+		data := buildPageData(cat, unlocksFromRequest(r))
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := indexTmpl.Execute(w, data); err != nil {
 			log.Printf("rendering index page: %v", err)
