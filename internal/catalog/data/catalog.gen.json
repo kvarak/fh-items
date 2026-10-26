@@ -228,7 +228,10 @@
           "lumber": 1
         },
         "requiredItems": [
-          10
+          {
+            "itemId": 10,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -247,7 +250,10 @@
           "metal": 1
         },
         "requiredItems": [
-          2
+          {
+            "itemId": 2,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -262,8 +268,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          4,
-          98
+          {
+            "itemId": 4,
+            "quantity": 1
+          },
+          {
+            "itemId": 98,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -281,7 +293,10 @@
           "hide": 1
         },
         "requiredItems": [
-          5
+          {
+            "itemId": 5,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -318,7 +333,10 @@
           "arrowvine": 1
         },
         "requiredItems": [
-          7
+          {
+            "itemId": 7,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -352,7 +370,10 @@
           "metal": 1
         },
         "requiredItems": [
-          12
+          {
+            "itemId": 12,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -383,8 +404,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          14,
-          98
+          {
+            "itemId": 14,
+            "quantity": 1
+          },
+          {
+            "itemId": 98,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -437,8 +464,14 @@
           "hide": 1
         },
         "requiredItems": [
-          3,
-          91
+          {
+            "itemId": 3,
+            "quantity": 1
+          },
+          {
+            "itemId": 91,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -456,7 +489,10 @@
           "hide": 1
         },
         "requiredItems": [
-          18
+          {
+            "itemId": 18,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -503,8 +539,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          11,
-          106
+          {
+            "itemId": 11,
+            "quantity": 1
+          },
+          {
+            "itemId": 106,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -539,8 +581,14 @@
           "metal": 1
         },
         "requiredItems": [
-          18,
-          96
+          {
+            "itemId": 18,
+            "quantity": 1
+          },
+          {
+            "itemId": 96,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -558,7 +606,10 @@
           "metal": 2
         },
         "requiredItems": [
-          97
+          {
+            "itemId": 97,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -595,7 +646,10 @@
           "snowthistle": 1
         },
         "requiredItems": [
-          16
+          {
+            "itemId": 16,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -613,8 +667,14 @@
           "corpsecap": 1
         },
         "requiredItems": [
-          3,
-          114
+          {
+            "itemId": 3,
+            "quantity": 1
+          },
+          {
+            "itemId": 114,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -629,8 +689,14 @@
       "count": 1,
       "cost": {
         "requiredItems": [
-          13,
-          113
+          {
+            "itemId": 13,
+            "quantity": 1
+          },
+          {
+            "itemId": 113,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -645,9 +711,18 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          29,
-          101,
-          112
+          {
+            "itemId": 29,
+            "quantity": 1
+          },
+          {
+            "itemId": 101,
+            "quantity": 1
+          },
+          {
+            "itemId": 112,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -665,8 +740,14 @@
           "lumber": 1
         },
         "requiredItems": [
-          20,
-          85
+          {
+            "itemId": 20,
+            "quantity": 1
+          },
+          {
+            "itemId": 85,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -684,8 +765,14 @@
           "metal": 1
         },
         "requiredItems": [
-          11,
-          110
+          {
+            "itemId": 11,
+            "quantity": 1
+          },
+          {
+            "itemId": 110,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -703,7 +790,10 @@
           "metal": 3
         },
         "requiredItems": [
-          112
+          {
+            "itemId": 112,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -721,8 +811,14 @@
           "metal": 1
         },
         "requiredItems": [
-          28,
-          90
+          {
+            "itemId": 28,
+            "quantity": 1
+          },
+          {
+            "itemId": 90,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -737,8 +833,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          24,
-          101
+          {
+            "itemId": 24,
+            "quantity": 1
+          },
+          {
+            "itemId": 101,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -753,8 +855,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          9,
-          25
+          {
+            "itemId": 9,
+            "quantity": 1
+          },
+          {
+            "itemId": 25,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -772,8 +880,14 @@
           "hide": 1
         },
         "requiredItems": [
-          26,
-          129
+          {
+            "itemId": 26,
+            "quantity": 1
+          },
+          {
+            "itemId": 129,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -788,9 +902,18 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          27,
-          119,
-          162
+          {
+            "itemId": 27,
+            "quantity": 1
+          },
+          {
+            "itemId": 119,
+            "quantity": 1
+          },
+          {
+            "itemId": 162,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -811,7 +934,10 @@
           "flamefruit": 1
         },
         "requiredItems": [
-          13
+          {
+            "itemId": 13,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -829,8 +955,14 @@
           "metal": 1
         },
         "requiredItems": [
-          111,
-          145
+          {
+            "itemId": 111,
+            "quantity": 1
+          },
+          {
+            "itemId": 145,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -848,9 +980,18 @@
           "metal": 1
         },
         "requiredItems": [
-          35,
-          105,
-          161
+          {
+            "itemId": 35,
+            "quantity": 1
+          },
+          {
+            "itemId": 105,
+            "quantity": 1
+          },
+          {
+            "itemId": 161,
+            "quantity": 1
+          }
         ]
       },
       "requiredBuilding": "craftsman",
@@ -868,7 +1009,10 @@
           "flamefruit": 1
         },
         "requiredItems": [
-          11
+          {
+            "itemId": 11,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint\nSO-48",
@@ -881,8 +1025,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          97,
-          129
+          {
+            "itemId": 97,
+            "quantity": 1
+          },
+          {
+            "itemId": 129,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -898,8 +1048,14 @@
           "metal": 1
         },
         "requiredItems": [
-          18,
-          88
+          {
+            "itemId": 18,
+            "quantity": 1
+          },
+          {
+            "itemId": 88,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -915,8 +1071,14 @@
           "snowthistle": 1
         },
         "requiredItems": [
-          6,
-          92
+          {
+            "itemId": 6,
+            "quantity": 1
+          },
+          {
+            "itemId": 92,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -933,7 +1095,10 @@
           "metal": 1
         },
         "requiredItems": [
-          94
+          {
+            "itemId": 94,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -974,9 +1139,18 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          14,
-          85,
-          90
+          {
+            "itemId": 14,
+            "quantity": 1
+          },
+          {
+            "itemId": 85,
+            "quantity": 1
+          },
+          {
+            "itemId": 90,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -989,8 +1163,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          11,
-          113
+          {
+            "itemId": 11,
+            "quantity": 1
+          },
+          {
+            "itemId": 113,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1006,7 +1186,10 @@
           "hide": 3
         },
         "requiredItems": [
-          132
+          {
+            "itemId": 132,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1022,8 +1205,14 @@
           "metal": 1
         },
         "requiredItems": [
-          32,
-          105
+          {
+            "itemId": 32,
+            "quantity": 1
+          },
+          {
+            "itemId": 105,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1036,8 +1225,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          28,
-          99
+          {
+            "itemId": 28,
+            "quantity": 1
+          },
+          {
+            "itemId": 99,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1050,8 +1245,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          13,
-          158
+          {
+            "itemId": 13,
+            "quantity": 1
+          },
+          {
+            "itemId": 158,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1067,8 +1268,14 @@
           "metal": 1
         },
         "requiredItems": [
-          96,
-          112
+          {
+            "itemId": 96,
+            "quantity": 1
+          },
+          {
+            "itemId": 112,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1084,7 +1291,10 @@
           "corpsecap": 1
         },
         "requiredItems": [
-          157
+          {
+            "itemId": 157,
+            "quantity": 1
+          }
         ]
       },
       "source": "Random Blueprint",
@@ -1097,8 +1307,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          109,
-          120
+          {
+            "itemId": 109,
+            "quantity": 1
+          },
+          {
+            "itemId": 120,
+            "quantity": 1
+          }
         ]
       },
       "source": "Scenario 188",
@@ -1114,8 +1330,14 @@
           "metal": 1
         },
         "requiredItems": [
-          1,
-          93
+          {
+            "itemId": 1,
+            "quantity": 1
+          },
+          {
+            "itemId": 93,
+            "quantity": 1
+          }
         ]
       },
       "source": "unknown",
@@ -1128,8 +1350,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          89,
-          123
+          {
+            "itemId": 89,
+            "quantity": 1
+          },
+          {
+            "itemId": 123,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 22",
@@ -1142,8 +1370,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          3,
-          233
+          {
+            "itemId": 3,
+            "quantity": 1
+          },
+          {
+            "itemId": 233,
+            "quantity": 1
+          }
         ]
       },
       "source": "Scenario 32",
@@ -1156,8 +1390,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          27,
-          113
+          {
+            "itemId": 27,
+            "quantity": 1
+          },
+          {
+            "itemId": 113,
+            "quantity": 1
+          }
         ]
       },
       "source": "Scenario 81",
@@ -1173,7 +1413,10 @@
           "corpsecap": 1
         },
         "requiredItems": [
-          18
+          {
+            "itemId": 18,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 49",
@@ -1189,7 +1432,10 @@
           "lumber": 1
         },
         "requiredItems": [
-          91
+          {
+            "itemId": 91,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 82",
@@ -1205,7 +1451,10 @@
           "metal": 2
         },
         "requiredItems": [
-          101
+          {
+            "itemId": 101,
+            "quantity": 1
+          }
         ]
       },
       "source": "Scenario 44",
@@ -1218,8 +1467,14 @@
       "count": 2,
       "cost": {
         "requiredItems": [
-          19,
-          97
+          {
+            "itemId": 19,
+            "quantity": 1
+          },
+          {
+            "itemId": 97,
+            "quantity": 1
+          }
         ]
       },
       "source": "Scenario 51",
@@ -1236,7 +1491,10 @@
           "snowthistle": 1
         },
         "requiredItems": [
-          30
+          {
+            "itemId": 30,
+            "quantity": 1
+          }
         ]
       },
       "source": "Scenario 110",
@@ -1269,7 +1527,10 @@
           "metal": 2
         },
         "requiredItems": [
-          86
+          {
+            "itemId": 86,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 40",
@@ -1286,7 +1547,10 @@
           "metal": 1
         },
         "requiredItems": [
-          110
+          {
+            "itemId": 110,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 31",
@@ -1319,8 +1583,14 @@
           "rockroot": 1
         },
         "requiredItems": [
-          99,
-          156
+          {
+            "itemId": 99,
+            "quantity": 1
+          },
+          {
+            "itemId": 156,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 72",
@@ -1336,7 +1606,10 @@
           "hide": 2
         },
         "requiredItems": [
-          97
+          {
+            "itemId": 97,
+            "quantity": 1
+          }
         ]
       },
       "source": "Treasure 59",
@@ -1352,7 +1625,10 @@
           "metal": 2
         },
         "requiredItems": [
-          112
+          {
+            "itemId": 112,
+            "quantity": 1
+          }
         ]
       },
       "source": "Both Treasure 62 and 69",

@@ -111,7 +111,20 @@ func convertCost(src sourceItem) (Cost, error) {
 			if err := json.Unmarshal(raw, &ids); err != nil {
 				return Cost{}, fmt.Errorf("resources.item: %w", err)
 			}
-			cost.RequiredItems = append(cost.RequiredItems, ids...)
+			// Group repeated ids into a quantity; the source data has
+			// never actually repeated one within a single item, but this
+			// keeps the conversion correct if it ever does.
+			qtyByID := make(map[int]int, len(ids))
+			order := make([]int, 0, len(ids))
+			for _, id := range ids {
+				if qtyByID[id] == 0 {
+					order = append(order, id)
+				}
+				qtyByID[id]++
+			}
+			for _, id := range order {
+				cost.RequiredItems = append(cost.RequiredItems, ItemRequirement{ItemID: id, Quantity: qtyByID[id]})
+			}
 		case "any":
 			var qtys []int
 			if err := json.Unmarshal(raw, &qtys); err != nil {
@@ -139,7 +152,7 @@ func convertCost(src sourceItem) (Cost, error) {
 			}
 		}
 	}
-	sort.Ints(cost.RequiredItems)
+	sort.Slice(cost.RequiredItems, func(i, j int) bool { return cost.RequiredItems[i].ItemID < cost.RequiredItems[j].ItemID })
 	sort.Ints(cost.AnyHerb)
 
 	return cost, nil

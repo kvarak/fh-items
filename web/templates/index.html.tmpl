@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fh-items</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>fh-items</h1>
+  <p>Frosthaven crafting planner. Select items to add them to your shopping basket.</p>
+
+  <div id="planner">
+    <div class="page-columns">
+      <div class="col-left">
+        <fieldset>
+          <legend>Unlockables</legend>
+          <label>Building 5 level
+            <input type="number" min="0" max="9" class="building-level-input" data-building="craftsman" value="{{.Buildings.Craftsman}}">
+          </label>
+          <label>Building 37 level
+            <input type="number" min="0" max="4" class="building-level-input" data-building="tradingPost" value="{{.Buildings.TradingPost}}">
+          </label>
+          <label>Building 39 level
+            <input type="number" min="0" max="3" class="building-level-input" data-building="jeweler" value="{{.Buildings.Jeweler}}">
+          </label>
+          <p class="hint">Discovered items (blueprint/loot/scenario, by number):</p>
+          <div class="unlockable-grid">
+            {{range .Unlockables}}
+            <label class="unlockable-entry">
+              <input type="checkbox" class="unlockable-checkbox" data-item-id="{{.ID}}" {{if .Unlocked}}checked{{end}}>
+              {{.ID}}
+            </label>
+            {{end}}
+          </div>
+        </fieldset>
+        <button type="button" id="unlocks-update-button">Update</button>
+      </div>
+
+      <div class="col-right">
+        <fieldset>
+          <legend>Shopping basket</legend>
+          <table>
+            <thead>
+              <tr>
+                <th>Select</th><th>Item</th><th>Name</th><th>Slot</th><th>Cost</th>
+                <th>Building</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="basket-body"></tbody>
+          </table>
+          <p>Basket total: <span id="basket-total">nothing</span></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Items</legend>
+          <div class="filter-pills" id="slot-filter-pills">
+            <button type="button" class="pill" data-filter-slot="small">Small Item</button>
+            <button type="button" class="pill" data-filter-slot="1h">One Hand</button>
+            <button type="button" class="pill" data-filter-slot="2h">Two Hand</button>
+            <button type="button" class="pill" data-filter-slot="head">Head</button>
+            <button type="button" class="pill" data-filter-slot="body">Body</button>
+            <button type="button" class="pill" data-filter-slot="legs">Legs</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Select</th><th>Item</th><th>Name</th><th>Slot</th><th>Cost</th>
+                <th>Building</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="items-body">
+              {{range .Items}}
+              {{if .Unlocked}}
+              <tr class="{{.StatusClass}}" data-item-row="{{.ID}}" data-slot="{{.Slot}}">
+                <td>
+                  <span class="select-cell{{if not .Craftable}} blocked{{end}}">
+                    <input type="checkbox" class="item-select" data-item-id="{{.ID}}" autocomplete="off"
+                           {{if not .Craftable}}disabled{{end}}>
+                  </span>
+                </td>
+                <td><span class="thumb"><img class="item-thumb" src="{{.ImagePath}}" alt="Item {{.ID}}" loading="lazy"></span></td>
+                <td>{{.Name}}</td>
+                <td>{{.Slot}}</td>
+                <td>{{.CostSummary}}</td>
+                <td>{{if .RequiredBuilding}}{{.RequiredBuilding}}.{{.RequiredBuildingLevel}}{{end}}</td>
+                <td>{{.Status}}</td>
+              </tr>
+              {{end}}
+              {{end}}
+            </tbody>
+          </table>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <p class="hint">
+    State is stored as cookies in your browser, by using this app you agree to the usage of cookies for storing your game state.
+  </p>
+
+  <script id="item-cost-data" type="application/json">{{.ItemCostJSON}}</script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

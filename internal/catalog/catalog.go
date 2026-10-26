@@ -42,6 +42,14 @@ const (
 	BuildingTradingPost BuildingType = "tradingPost"
 )
 
+// ItemRequirement is a prerequisite item (and quantity) that must be owned
+// and is consumed when crafting another item, per Frosthaven's item-upgrade
+// recipes (e.g. a Reinforced Shield requires 1 Crude Shield).
+type ItemRequirement struct {
+	ItemID   int `json:"itemId"`
+	Quantity int `json:"quantity"`
+}
+
 // Cost describes what must be spent to craft or buy an item. A given item
 // has either a materials/herbs cost (crafted) or a Gold cost (bought), per
 // the source data, never both.
@@ -54,9 +62,10 @@ type Cost struct {
 	// of one freely-chosen herb type (e.g. [2, 1] means "2 of one herb
 	// type plus 1 of a different herb type").
 	AnyHerb []int `json:"anyHerb,omitempty"`
-	// RequiredItems lists item IDs that must be owned and are consumed as
-	// crafting ingredients (Frosthaven's item-upgrade recipes).
-	RequiredItems []int `json:"requiredItems,omitempty"`
+	// RequiredItems lists prerequisite items (and quantities) that must be
+	// owned and are consumed as crafting ingredients (Frosthaven's
+	// item-upgrade recipes).
+	RequiredItems []ItemRequirement `json:"requiredItems,omitempty"`
 	// Gold is the gold price for shop-purchased items.
 	Gold int `json:"gold,omitempty"`
 }
@@ -79,9 +88,6 @@ type Item struct {
 	// Count is the total number of physical copies that exist of this item.
 	Count int  `json:"count"`
 	Cost  Cost `json:"cost"`
-	// Value is an optional priority/value score used by recommendations.
-	// Zero means "no value assigned".
-	Value int `json:"value,omitempty"`
 	// RequiredBuilding/RequiredBuildingLevel gate items unlocked by
 	// building level (Craftsman/Jeweler/Trading Post catalogs). Items
 	// obtained other ways (blueprints, loot, scenario rewards) leave

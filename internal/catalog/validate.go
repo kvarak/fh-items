@@ -31,14 +31,74 @@ func (c Catalog) Validate() error {
 
 	// Cross-reference required-item ingredients against the catalog.
 	for _, item := range c.Items {
-		for _, reqID := range item.Cost.RequiredItems {
-			if !seenIDs[reqID] {
-				errs = append(errs, fmt.Errorf("item %d (%s): requires unknown item id %d", item.ID, item.Name, reqID))
+		for _, req := range item.Cost.RequiredItems {
+			if !seenIDs[req.ItemID] {
+				errs = append(errs, fmt.Errorf("item %d (%s): requires unknown item id %d", item.ID, item.Name, req.ItemID))
 			}
 		}
 	}
 
+	if cycle := findRequirementCycle(c.Items); cycle != nil {
+		errs = append(errs, fmt.Errorf("prerequisite cycle detected: %v", cycle))
+	}
+
 	return joinErrors(errs)
+}
+
+// findRequirementCycle walks the RequiredItems graph looking for a cycle,
+// returning the item IDs forming it (or nil if the graph is acyclic). Item
+// prerequisites must form a DAG - Frosthaven upgrade chains never loop back
+// on themselves, and the affordability engine assumes as much.
+func findRequirementCycle(items []Item) []int {
+	requirementsOf := make(map[int][]int, len(items))
+	for _, item := range items {
+		for _, req := range item.Cost.RequiredItems {
+			requirementsOf[item.ID] = append(requirementsOf[item.ID], req.ItemID)
+		}
+	}
+
+	const (
+		unvisited = 0
+		visiting  = 1
+		done      = 2
+	)
+	state := make(map[int]int, len(items))
+	var path []int
+
+	var visit func(id int) []int
+	visit = func(id int) []int {
+		switch state[id] {
+		case done:
+			return nil
+		case visiting:
+			// Found a back-edge to an ancestor: return the cycle slice.
+			for i, p := range path {
+				if p == id {
+					return append(append([]int{}, path[i:]...), id)
+				}
+			}
+			return []int{id}
+		}
+		state[id] = visiting
+		path = append(path, id)
+		for _, dep := range requirementsOf[id] {
+			if cycle := visit(dep); cycle != nil {
+				return cycle
+			}
+		}
+		path = path[:len(path)-1]
+		state[id] = done
+		return nil
+	}
+
+	for _, item := range items {
+		if state[item.ID] == unvisited {
+			if cycle := visit(item.ID); cycle != nil {
+				return cycle
+			}
+		}
+	}
+	return nil
 }
 
 func (item Item) validate() []error {
@@ -74,6 +134,19 @@ func (item Item) validate() []error {
 		if qty <= 0 {
 			errs = append(errs, fmt.Errorf("anyHerb cost entries must be positive, got %d", qty))
 		}
+	}
+	seenReq := make(map[int]bool, len(item.Cost.RequiredItems))
+	for _, req := range item.Cost.RequiredItems {
+		if req.ItemID == item.ID {
+			errs = append(errs, fmt.Errorf("requires itself as a prerequisite"))
+		}
+		if req.Quantity <= 0 {
+			errs = append(errs, fmt.Errorf("required item %d quantity must be positive, got %d", req.ItemID, req.Quantity))
+		}
+		if seenReq[req.ItemID] {
+			errs = append(errs, fmt.Errorf("required item %d listed more than once", req.ItemID))
+		}
+		seenReq[req.ItemID] = true
 	}
 	if item.Cost.Gold < 0 {
 		errs = append(errs, fmt.Errorf("gold cost must not be negative"))

@@ -53,7 +53,7 @@ func TestValidate_DetectsUnknownRequiredItem(t *testing.T) {
 		SchemaVersion:  SchemaVersion,
 		SourceChecksum: "abc",
 		Items: []Item{
-			{ID: 1, Name: "A", Cost: Cost{RequiredItems: []int{999}}},
+			{ID: 1, Name: "A", Cost: Cost{RequiredItems: []ItemRequirement{{ItemID: 999, Quantity: 1}}}},
 		},
 	}
 	err := cat.Validate()
@@ -109,7 +109,10 @@ func TestValidate_AcceptsWellFormedCatalog(t *testing.T) {
 			{ID: 1, Name: "Crude Shield", Cost: Cost{Materials: map[ResourceType]int{ResourceMetal: 1}}},
 			{
 				ID: 2, Name: "Reinforced Shield",
-				Cost:                  Cost{Materials: map[ResourceType]int{ResourceLumber: 1}, RequiredItems: []int{1}},
+				Cost: Cost{
+					Materials:     map[ResourceType]int{ResourceLumber: 1},
+					RequiredItems: []ItemRequirement{{ItemID: 1, Quantity: 1}},
+				},
 				RequiredBuilding:      BuildingCraftsman,
 				RequiredBuildingLevel: 3,
 			},
@@ -118,5 +121,20 @@ func TestValidate_AcceptsWellFormedCatalog(t *testing.T) {
 	}
 	if err := cat.Validate(); err != nil {
 		t.Errorf("Validate() error = %v, want nil", err)
+	}
+}
+
+func TestValidate_DetectsPrerequisiteCycle(t *testing.T) {
+	cat := Catalog{
+		SchemaVersion:  SchemaVersion,
+		SourceChecksum: "abc",
+		Items: []Item{
+			{ID: 1, Name: "A", Cost: Cost{RequiredItems: []ItemRequirement{{ItemID: 2, Quantity: 1}}}},
+			{ID: 2, Name: "B", Cost: Cost{RequiredItems: []ItemRequirement{{ItemID: 1, Quantity: 1}}}},
+		},
+	}
+	err := cat.Validate()
+	if err == nil || !strings.Contains(err.Error(), "prerequisite cycle detected") {
+		t.Errorf("Validate() error = %v, want it to report a prerequisite cycle", err)
 	}
 }

@@ -15,7 +15,10 @@ func testCatalog() catalog.Catalog {
 			{ID: 1, Name: "Crude Shield", Count: 2, Cost: catalog.Cost{Materials: map[catalog.ResourceType]int{catalog.ResourceMetal: 1}},
 				RequiredBuilding: catalog.BuildingCraftsman, RequiredBuildingLevel: 1},
 			{ID: 2, Name: "Reinforced Shield", Count: 2,
-				Cost:                  catalog.Cost{Materials: map[catalog.ResourceType]int{catalog.ResourceLumber: 1}, RequiredItems: []int{1}},
+				Cost: catalog.Cost{
+					Materials:     map[catalog.ResourceType]int{catalog.ResourceLumber: 1},
+					RequiredItems: []catalog.ItemRequirement{{ItemID: 1, Quantity: 1}},
+				},
 				RequiredBuilding:      catalog.BuildingCraftsman,
 				RequiredBuildingLevel: 3},
 			{ID: 3, Name: "Random Blueprint Item", Count: 2, Cost: catalog.Cost{Materials: map[catalog.ResourceType]int{catalog.ResourceHide: 1}}},

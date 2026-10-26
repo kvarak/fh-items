@@ -63,8 +63,8 @@ func TestGenerateFromSource(t *testing.T) {
 	}
 
 	shield := byID[2]
-	if len(shield.Cost.RequiredItems) != 1 || shield.Cost.RequiredItems[0] != 1 {
-		t.Errorf("Reinforced Shield RequiredItems = %v, want [1]", shield.Cost.RequiredItems)
+	if len(shield.Cost.RequiredItems) != 1 || shield.Cost.RequiredItems[0].ItemID != 1 || shield.Cost.RequiredItems[0].Quantity != 1 {
+		t.Errorf("Reinforced Shield RequiredItems = %v, want [{1 1}]", shield.Cost.RequiredItems)
 	}
 	if shield.Cost.Materials[ResourceLumber] != 1 {
 		t.Errorf("Reinforced Shield lumber cost = %d, want 1", shield.Cost.Materials[ResourceLumber])

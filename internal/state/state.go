@@ -69,7 +69,6 @@ func (b BuildingLevels) Level(building catalog.BuildingType) int {
 // herb supply, gold, and the items they currently own (which can be
 // consumed as crafting ingredients for item upgrades).
 type Character struct {
-	Name string `json:"name"`
 	// Materials holds the character's personal lumber/metal/hide supply.
 	Materials map[catalog.ResourceType]int `json:"materials"`
 	// Herbs holds the character's personal herb supply, by specific herb
