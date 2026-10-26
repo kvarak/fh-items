@@ -26,6 +26,11 @@ func main() {
 	log.Printf("loaded catalog: %d items (schema v%d, source checksum %s)",
 		len(cat.Items), cat.SchemaVersion, cat.SourceChecksum)
 
+	ghItems, err := catalog.LoadGloomhaven()
+	if err != nil {
+		log.Fatalf("loading gloomhaven items: %v", err)
+	}
+
 	indexTmpl, err := template.ParseFS(web.Templates, "templates/index.html.tmpl")
 	if err != nil {
 		log.Fatalf("parsing index template: %v", err)
@@ -33,7 +38,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /{$}", func(w http.ResponseWriter, r *http.Request) {
-		data := buildPageData(cat, unlocksFromRequest(r))
+		data := buildPageData(cat, ghItems, unlocksFromRequest(r))
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := indexTmpl.Execute(w, data); err != nil {
 			log.Printf("rendering index page: %v", err)

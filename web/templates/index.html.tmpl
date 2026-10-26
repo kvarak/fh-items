@@ -24,7 +24,7 @@
           <input type="number" min="0" max="3" class="building-level-input" data-building="jeweler" value="{{.Buildings.Jeweler}}">
         </label>
         <p class="hint">Discovered items (blueprint/loot/scenario, by number):</p>
-        <div class="unlockable-grid">
+        <div class="unlockable-grid scrollable">
           {{range .Unlockables}}
           <label class="unlockable-entry">
             <input type="checkbox" class="unlockable-checkbox" data-item-id="{{.ID}}" {{if .Discovered}}checked{{end}}>
@@ -32,6 +32,20 @@
           </label>
           {{end}}
         </div>
+        <p class="hint">Gloomhaven items added:</p>
+        {{range .GloomhavenSets}}
+        <div class="gloomhaven-set" {{if not .Visible}}hidden{{end}}>
+          <p class="hint">Building 37 level {{.Level}}</p>
+          <div class="unlockable-grid">
+            {{range .Items}}
+            <label class="unlockable-entry">
+              <input type="checkbox" class="gloomhaven-checkbox" data-item-id="{{.ID}}" {{if .Discovered}}checked{{end}}>
+              {{.ID}}
+            </label>
+            {{end}}
+          </div>
+        </div>
+        {{end}}
       </fieldset>
       <button type="button" id="unlocks-update-button">Update</button>
     </div>
@@ -69,8 +83,8 @@
             </tr>
           </thead>
           <tbody id="items-body">
-            {{range .Items}}
-            <tr class="{{if .Craftable}}status-available{{else}}status-unavailable{{end}}" data-item-row="{{.ID}}" data-slot="{{.Slot}}">
+            {{range $i, $item := .Items}}
+            <tr class="{{if .Craftable}}status-available{{else}}status-unavailable{{end}}" data-item-row="{{.Key}}" data-order="{{$i}}" data-slot="{{.Slot}}">
               <td>
                 <span class="select-cell{{if not .Craftable}} blocked{{end}}">
                   <input type="checkbox" class="item-select" autocomplete="off" {{if not .Craftable}}disabled{{end}}>

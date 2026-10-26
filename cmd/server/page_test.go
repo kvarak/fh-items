@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"strings"
 	"testing"
 
 	"fh-items/internal/catalog"
@@ -76,6 +77,26 @@ func TestIsCraftable_RequiresUnlockedPrerequisites(t *testing.T) {
 	}
 	if !isCraftable(4, byID, map[int]bool{3: true, 4: true}, map[int]bool{}) {
 		t.Error("item 4 should be craftable once its prerequisite is unlocked")
+	}
+}
+
+func TestBuildPageData_GloomhavenItemsNeedLevelAndCheck(t *testing.T) {
+	gh := []catalog.GloomhavenItem{
+		{ID: 10, Name: "War Hammer", Slot: "2h", Gold: 30, TradingPostLevel: 1},
+		{ID: 21, Name: "Stun Powder", Slot: "small", Gold: 20, TradingPostLevel: 2},
+		{ID: 25, Name: "Jagged Sword", Slot: "1h", Gold: 30, TradingPostLevel: 1},
+	}
+	u := unlocks{Buildings: buildingLevels{TradingPost: 1}, GloomhavenIDs: []int{10, 21}}
+	data := buildPageData(catalog.Catalog{}, gh, u)
+
+	if len(data.Items) != 1 || data.Items[0].Key != "gh10" {
+		t.Fatalf("got items %+v, want only gh10 (checked and level reached)", data.Items)
+	}
+	if len(data.GloomhavenSets) != 2 || !data.GloomhavenSets[0].Visible || data.GloomhavenSets[1].Visible {
+		t.Errorf("got sets %+v, want level 1 visible and level 2 hidden", data.GloomhavenSets)
+	}
+	if !strings.Contains(string(data.ItemCostJSON), `"gh10":{"gold":30}`) {
+		t.Errorf("cost JSON %s missing gh10 gold cost", data.ItemCostJSON)
 	}
 }
 

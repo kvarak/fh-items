@@ -51,6 +51,11 @@ input[type="number"] {
   border-radius: 0.25rem;
 }
 
+.unlockable-grid.scrollable {
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
 .unlockable-entry {
   display: inline-flex;
   align-items: center;

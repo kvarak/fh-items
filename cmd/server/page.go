@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"net/url"
+	"strconv"
 	"strings"
 
 	"fh-items/internal/catalog"
@@ -37,6 +38,7 @@ func (b buildingLevels) level(bt catalog.BuildingType) int {
 type unlocks struct {
 	Buildings         buildingLevels `json:"buildings"`
 	DiscoveredItemIDs []int          `json:"unlockedItemIds"`
+	GloomhavenIDs     []int          `json:"ghItemIds"`
 }
 
 // unlocksFromRequest reads the fhUnlocks cookie; a missing or malformed
@@ -82,8 +84,10 @@ var buildingLabels = map[catalog.BuildingType]string{
 	catalog.BuildingTradingPost: "37",
 }
 
-// pageItem is one row in the Items table.
+// pageItem is one row in the Items table. Key is unique across Frosthaven
+// and Gloomhaven items, whose IDs overlap.
 type pageItem struct {
+	Key         string
 	ID          int
 	Name        string
 	ImagePath   string
@@ -109,14 +113,25 @@ type pageUnlockable struct {
 	Discovered bool
 }
 
-type pageData struct {
-	Buildings    buildingLevels
-	Items        []pageItem
-	Unlockables  []pageUnlockable
-	ItemCostJSON template.JS
+// pageGloomhavenSet is one Trading Post import set; Visible once the
+// Trading Post reaches Level.
+type pageGloomhavenSet struct {
+	Level   int
+	Visible bool
+	Items   []pageUnlockable
 }
 
-func buildPageData(cat catalog.Catalog, u unlocks) pageData {
+type pageData struct {
+	Buildings      buildingLevels
+	Items          []pageItem
+	Unlockables    []pageUnlockable
+	GloomhavenSets []pageGloomhavenSet
+	ItemCostJSON   template.JS
+}
+
+func gloomhavenKey(id int) string { return fmt.Sprintf("gh%d", id) }
+
+func buildPageData(cat catalog.Catalog, gh []catalog.GloomhavenItem, u unlocks) pageData {
 	byID := make(map[int]catalog.Item, len(cat.Items))
 	for _, item := range cat.Items {
 		byID[item.ID] = item
@@ -124,7 +139,7 @@ func buildPageData(cat catalog.Catalog, u unlocks) pageData {
 	unlocked := u.unlockedSet(cat)
 
 	data := pageData{Buildings: u.Buildings}
-	costByID := map[int]pageItemCost{}
+	costByID := map[string]pageItemCost{}
 	craftableMemo := map[int]bool{}
 	for _, item := range cat.Items {
 		if item.RequiredBuilding == "" {
@@ -139,6 +154,7 @@ func buildPageData(cat catalog.Catalog, u unlocks) pageData {
 			building = fmt.Sprintf("%s.%d", buildingLabels[item.RequiredBuilding], item.RequiredBuildingLevel)
 		}
 		data.Items = append(data.Items, pageItem{
+			Key:         strconv.Itoa(item.ID),
 			ID:          item.ID,
 			Name:        item.Name,
 			ImagePath:   fmt.Sprintf("/static/items/%03d.png", item.ID),
@@ -152,13 +168,45 @@ func buildPageData(cat catalog.Catalog, u unlocks) pageData {
 		for _, req := range item.Cost.RequiredItems {
 			reqIDs = append(reqIDs, req.ItemID)
 		}
-		costByID[item.ID] = pageItemCost{
+		costByID[strconv.Itoa(item.ID)] = pageItemCost{
 			Materials:       item.Cost.Materials,
 			Herbs:           item.Cost.Herbs,
 			AnyHerb:         item.Cost.AnyHerb,
 			Gold:            item.Cost.Gold,
 			RequiredItemIDs: reqIDs,
 		}
+	}
+
+	ghChecked := make(map[int]bool, len(u.GloomhavenIDs))
+	for _, id := range u.GloomhavenIDs {
+		ghChecked[id] = true
+	}
+	setIndex := map[int]int{}
+	for _, item := range gh {
+		available := u.Buildings.TradingPost >= item.TradingPostLevel
+		idx, ok := setIndex[item.TradingPostLevel]
+		if !ok {
+			idx = len(data.GloomhavenSets)
+			setIndex[item.TradingPostLevel] = idx
+			data.GloomhavenSets = append(data.GloomhavenSets, pageGloomhavenSet{Level: item.TradingPostLevel, Visible: available})
+		}
+		set := &data.GloomhavenSets[idx]
+		set.Items = append(set.Items, pageUnlockable{ID: item.ID, Discovered: ghChecked[item.ID]})
+
+		if !available || !ghChecked[item.ID] {
+			continue
+		}
+		data.Items = append(data.Items, pageItem{
+			Key:         gloomhavenKey(item.ID),
+			ID:          item.ID,
+			Name:        item.Name,
+			ImagePath:   fmt.Sprintf("/static/items/gh/%03d.png", item.ID),
+			Slot:        item.Slot,
+			Building:    fmt.Sprintf("%s.%d", buildingLabels[catalog.BuildingTradingPost], item.TradingPostLevel),
+			Craftable:   true,
+			CostSummary: fmt.Sprintf("%d gold", item.Gold),
+		})
+		costByID[gloomhavenKey(item.ID)] = pageItemCost{Gold: item.Gold}
 	}
 
 	costJSON, _ := json.Marshal(costByID)

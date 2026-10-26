@@ -63,17 +63,17 @@ function addRequiredItemsToBasket(itemId) {
   }
 }
 
-// Moves a row into the basket, or back to its catalog position in the Items table.
+// Moves a row into the basket, or back to its original position in the Items table.
 function setRowInBasket(row, inBasket) {
-  const id = parseInt(row.dataset.itemRow, 10);
+  const order = parseInt(row.dataset.order, 10);
   row.querySelector(".item-select").checked = inBasket;
   if (inBasket) {
     row.classList.remove("filtered-out");
     basketBody.appendChild(row);
-    addRequiredItemsToBasket(id);
+    addRequiredItemsToBasket(row.dataset.itemRow);
   } else {
     const next = [...itemsBody.querySelectorAll("tr[data-item-row]")].find(
-      (other) => parseInt(other.dataset.itemRow, 10) > id
+      (other) => parseInt(other.dataset.order, 10) > order
     );
     itemsBody.insertBefore(row, next || null);
   }
@@ -84,8 +84,8 @@ function setRowInBasket(row, inBasket) {
 
 // Basket contents are kept in a cookie so they survive the Update reload.
 function saveBasketCookie() {
-  const ids = [...basketBody.querySelectorAll("tr[data-item-row]")].map((row) => parseInt(row.dataset.itemRow, 10));
-  writeCookie(BASKET_COOKIE, ids);
+  const keys = [...basketBody.querySelectorAll("tr[data-item-row]")].map((row) => row.dataset.itemRow);
+  writeCookie(BASKET_COOKIE, keys);
 }
 
 document.addEventListener("change", (event) => {
@@ -101,9 +101,9 @@ function readBuildingLevels() {
   return out;
 }
 
-function readUnlockedItemIDs() {
+function readCheckedIDs(selector) {
   const ids = [];
-  document.querySelectorAll(".unlockable-checkbox").forEach((input) => {
+  document.querySelectorAll(selector).forEach((input) => {
     if (input.checked) ids.push(parseInt(input.dataset.itemId, 10));
   });
   return ids;
@@ -134,7 +134,8 @@ document.querySelectorAll("#slot-filter-pills .pill").forEach((button) => {
 document.getElementById("unlocks-update-button").addEventListener("click", () => {
   writeCookie(UNLOCKS_COOKIE, {
     buildings: readBuildingLevels(),
-    unlockedItemIds: readUnlockedItemIDs(),
+    unlockedItemIds: readCheckedIDs(".unlockable-checkbox"),
+    ghItemIds: readCheckedIDs(".gloomhaven-checkbox"),
   });
   window.location.reload();
 });
