@@ -53,7 +53,7 @@
     {
       "id": 5,
       "name": "Crude Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 2
@@ -65,7 +65,7 @@
     {
       "id": 6,
       "name": "Flexible Slippers",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 1
@@ -151,7 +151,7 @@
     {
       "id": 13,
       "name": "Dancing Slippers",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 1
@@ -235,7 +235,7 @@
     {
       "id": 18,
       "name": "Rough Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 1
@@ -318,7 +318,7 @@
     {
       "id": 23,
       "name": "Sturdy Greaves",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 2,
@@ -401,7 +401,7 @@
     {
       "id": 28,
       "name": "Sturdy Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 1
@@ -478,7 +478,7 @@
     {
       "id": 33,
       "name": "Volatile Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "metal": 1
@@ -574,7 +574,7 @@
     {
       "id": 38,
       "name": "Duelists Shoes",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "requiredItems": [
           {
@@ -678,7 +678,7 @@
     {
       "id": 43,
       "name": "Kicking Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "metal": 1
@@ -783,7 +783,7 @@
     {
       "id": 48,
       "name": "Living Shoes",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "hide": 2
@@ -885,7 +885,7 @@
     {
       "id": 53,
       "name": "Hobnail Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "materials": {
           "metal": 1
@@ -905,7 +905,7 @@
     {
       "id": 54,
       "name": "Restful Slippers",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "herbs": {
           "snowthistle": 1
@@ -1038,7 +1038,7 @@
     {
       "id": 62,
       "name": "Everlasting Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "requiredItems": [
           {
@@ -1055,7 +1055,7 @@
     {
       "id": 63,
       "name": "Shadow Stompers",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "requiredItems": [
           {
@@ -1196,7 +1196,7 @@
     {
       "id": 71,
       "name": "Bone Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "herbs": {
           "corpsecap": 1
@@ -1857,7 +1857,7 @@
     {
       "id": 124,
       "name": "Winged Shoes",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 15
       },
@@ -1867,7 +1867,7 @@
     {
       "id": 125,
       "name": "Boots of Speed",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 30
       },
@@ -1947,7 +1947,7 @@
     {
       "id": 133,
       "name": "Nimble Legguards",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 20
       },
@@ -1957,7 +1957,7 @@
     {
       "id": 134,
       "name": "Comfortable Shoes",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 30
       },
@@ -2037,7 +2037,7 @@
     {
       "id": 142,
       "name": "Boots of Quickness",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 50
       },
@@ -2047,7 +2047,7 @@
     {
       "id": 143,
       "name": "Endurance Footwraps",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 40
       },
@@ -2127,7 +2127,7 @@
     {
       "id": 151,
       "name": "Serene Sandals",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 75
       },
@@ -2137,7 +2137,7 @@
     {
       "id": 152,
       "name": "Steel Sabatons",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 55
       },
@@ -2369,7 +2369,7 @@
     {
       "id": 177,
       "name": "Boots of Transference",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 40
       }
@@ -2377,7 +2377,7 @@
     {
       "id": 178,
       "name": "Tranquil Shoes",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 40
       }
@@ -2385,7 +2385,7 @@
     {
       "id": 179,
       "name": "Burst Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 25
       }
@@ -2393,7 +2393,7 @@
     {
       "id": 180,
       "name": "Boots of Greed",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 35
       }
@@ -2545,7 +2545,7 @@
     {
       "id": 199,
       "name": "Opulent Shoes",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {
         "gold": 30
       }
@@ -3015,7 +3015,7 @@
     {
       "id": 262,
       "name": "Exhaust Boots",
-      "slot": "legs",
+      "slot": "feet",
       "cost": {}
     },
     {

@@ -1,7 +1,7 @@
 [
   {"id": 10, "name": "War Hammer", "slot": "2h", "gold": 30, "tradingPostLevel": 1},
   {"id": 25, "name": "Jagged Sword", "slot": "1h", "gold": 30, "tradingPostLevel": 1},
-  {"id": 72, "name": "Shoes of Happiness", "slot": "legs", "gold": 50, "tradingPostLevel": 1},
+  {"id": 72, "name": "Shoes of Happiness", "slot": "feet", "gold": 50, "tradingPostLevel": 1},
   {"id": 105, "name": "Flea-Bitten Shawl", "slot": "body", "gold": 10, "tradingPostLevel": 1},
   {"id": 109, "name": "Thief's Hood", "slot": "head", "gold": 20, "tradingPostLevel": 1},
   {"id": 116, "name": "Fueled Falchion", "slot": "1h", "gold": 20, "tradingPostLevel": 1},

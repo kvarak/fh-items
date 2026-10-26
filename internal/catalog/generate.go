@@ -8,7 +8,7 @@ import (
 	"sort"
 )
 
-// sourceItem mirrors the subset of .github/docs/items.json fields that
+// sourceItem mirrors the subset of the source items.json fields that
 // feed the app catalog. The source file is treated as immutable; extra
 // fields present in the source but not read here are intentionally
 // ignored.
@@ -23,8 +23,8 @@ type sourceItem struct {
 	UnlockTradingPostLevel *int                       `json:"unlockTradingPostLevel"`
 }
 
-// GenerateFromSource builds a Catalog from the raw bytes of
-// .github/docs/items.json. The returned Catalog's SourceChecksum is the
+// GenerateFromSource builds a Catalog from the raw bytes of the source
+// items.json. The returned Catalog's SourceChecksum is the
 // sha256 of sourceJSON, so staleness against the immutable source file can
 // be detected later.
 func GenerateFromSource(sourceJSON []byte) (Catalog, error) {
@@ -71,6 +71,10 @@ func convertItem(src sourceItem) (Item, error) {
 		Name: src.Name,
 		Slot: src.Slot,
 		Cost: cost,
+	}
+	// The source calls the feet slot "legs"; the game cards say feet.
+	if item.Slot == "legs" {
+		item.Slot = "feet"
 	}
 
 	switch {

@@ -1,9 +1,9 @@
-// Command gendata regenerates the embedded app catalog from the
-// authoritative, immutable source data at .github/docs/items.json.
+// Command gendata regenerates the embedded app catalog from a source
+// items.json.
 //
 // Usage:
 //
-//	go run ./cmd/gendata [-source path] [-out path]
+//	go run ./cmd/gendata -source path [-out path]
 package main
 
 import (
@@ -16,9 +16,14 @@ import (
 )
 
 func main() {
-	sourcePath := flag.String("source", "../.github/docs/items.json", "path to the immutable source items.json")
+	sourcePath := flag.String("source", "", "path to the source items.json (required)")
 	outPath := flag.String("out", "internal/catalog/data/catalog.gen.json", "path to write the generated catalog")
 	flag.Parse()
+	if *sourcePath == "" {
+		fmt.Fprintln(os.Stderr, "gendata: -source is required")
+		flag.Usage()
+		os.Exit(2)
+	}
 
 	if err := run(*sourcePath, *outPath); err != nil {
 		fmt.Fprintln(os.Stderr, "gendata:", err)
