@@ -7,7 +7,7 @@ for running it.
 
 ## Design
 
-- **Unlocking.** Craftsman (5), Trading Post (37), and Jeweler (39) items
+- **Unlocking.** Craftsman (34), Trading Post (37), and Jeweler (39) items
   unlock by building level. Every other item (blueprint, loot, scenario
   reward) unlocks only when marked discovered.
 - **Items table.** Only unlocked items are listed. An item can be selected

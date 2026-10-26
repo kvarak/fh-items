@@ -85,7 +85,7 @@ func (u unlocks) unlockedSet(cat catalog.Catalog) map[int]bool {
 
 // buildingLabels uses building numbers instead of names to avoid spoilers.
 var buildingLabels = map[catalog.BuildingType]string{
-	catalog.BuildingCraftsman:   "5",
+	catalog.BuildingCraftsman:   "34",
 	catalog.BuildingJeweler:     "39",
 	catalog.BuildingTradingPost: "37",
 }
